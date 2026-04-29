@@ -1,14 +1,10 @@
 ---
 title: "Tự đánh giá"
-date: 2025-11-13
+date: 2026-03-10
 weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
-
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
 
 Trong thời gian thực tập tại CÔNG TY TNHH AMAZON WEB SERVICES VIỆT NAM từ 29/9/2025 đến 22/11/2025, tôi có cơ hội tham gia vào dự án thực tế “Chuyển đổi số cho Mini-market trên nền tảng AWS Cloud”.
 Trong quá trình thực tập, tôi đã áp dụng các kiến thức được học ở trường—từ công nghệ phần mềm, cơ sở dữ liệu, đến điện toán đám mây—để xây dựng một nền tảng e-commerce .NET 3 tầng kết hợp với các dịch vụ AWS.

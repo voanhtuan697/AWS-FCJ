@@ -1,16 +1,10 @@
 ---
 title: "Sharing and Feedback"
-date: 2025-11-13
+date: 2026-03-10
 weight: 6
 chapter: false
 pre: " <b> 6. </b> "
 ---
-
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
-
-> Here, you can freely share your personal opinions about your experience participating in the First Cloud Journey program. This will help the FCJ team improve any shortcomings based on the following aspects:
 
 ### Overall Evaluation
 

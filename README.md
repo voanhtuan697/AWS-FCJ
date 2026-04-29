@@ -10,20 +10,20 @@ Xin chào! Mình là **Võ Anh Tuấn**, hiện đang là sinh viên ngành Côn
 
 ## Xem trực tiếp
 
-Ghé thăm website của mình tại đây nhé: **[https://danielleit241.github.io/aws-fcj-report/](https://danielleit241.github.io/aws-fcj-report/)** 🎉
+Ghé thăm website của mình tại đây nhé: **[https://voanhtuan697.github.io/AWS-FCJ/](https://voanhtuan697.github.io/AWS-FCJ/)** 🎉
 
 ## Có gì trong đây?
 
 Website được chia thành các phần sau để các bạn dễ theo dõi:
 
-- **Worklog**: Nhật ký công việc hàng tuần của mình (từ tuần 1 đến tuần 12)
+- **Worklog**: Nhật ký công việc hàng tuần của mình (từ tuần 1 đến tuần 8)
 - **Proposal**: Ý tưởng và đề xuất dự án
 - **Event Participated**: Các sự kiện và hoạt động mình đã tham gia
 - **Workshop**: Hướng dẫn chi tiết về AWS Knowledge Base và Chatbot
 - **Self-evaluation**: Tự đánh giá bản thân
 - **Feedback**: Góp ý và phản hồi
 
-##Công nghệ sử dụng
+## Công nghệ sử dụng
 
 - **Hugo**: Static Site Generator
 - **Theme**: Hugo Learn Theme
