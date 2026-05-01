@@ -15,21 +15,21 @@
     <title>Proposal :: Internship Report</title>
 
     
-    <link href="../css/nucleus.css?1777476847" rel="stylesheet">
-    <link href="../css/fontawesome-all.min.css?1777476847" rel="stylesheet">
-    <link href="../css/hybrid.css?1777476847" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1777476847" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1777476847" rel="stylesheet">
-    <link href="../css/auto-complete.css?1777476847" rel="stylesheet">
-    <link href="../css/atom-one-dark-reasonable.css?1777476847" rel="stylesheet">
-    <link href="../css/theme.css?1777476847" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1777476847" rel="stylesheet">
+    <link href="../css/nucleus.css?1777618044" rel="stylesheet">
+    <link href="../css/fontawesome-all.min.css?1777618044" rel="stylesheet">
+    <link href="../css/hybrid.css?1777618044" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1777618044" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1777618044" rel="stylesheet">
+    <link href="../css/auto-complete.css?1777618044" rel="stylesheet">
+    <link href="../css/atom-one-dark-reasonable.css?1777618044" rel="stylesheet">
+    <link href="../css/theme.css?1777618044" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1777618044" rel="stylesheet">
     
-    <link href="../css/theme-workshop.css?1777476847" rel="stylesheet">
+    <link href="../css/theme-workshop.css?1777618044" rel="stylesheet">
     
     
 
-    <script src="../js/jquery-3.3.1.min.js?1777476847"></script>
+    <script src="../js/jquery-3.3.1.min.js?1777618044"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../js/lunr.min.js?1777476847"></script>
-<script type="text/javascript" src="../js/auto-complete.js?1777476847"></script>
+<script type="text/javascript" src="../js/lunr.min.js?1777618044"></script>
+<script type="text/javascript" src="../js/auto-complete.js?1777618044"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/aws-fcj-report\/";
     
 </script>
-<script type="text/javascript" src="../js/search.js?1777476847"></script>
+<script type="text/javascript" src="../js/search.js?1777618044"></script>
  
   </div>
 
@@ -494,18 +494,17 @@
                     <div class="progress">
   <div class="wrapper"><nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#1-project-overview">1. Project Overview</a></li>
+    <li><a href="#2-problems-and-solution">2. Problems and Solution</a>
       <ul>
-        <li><a href="#1-project-overview--objectives">1. Project Overview &amp; Objectives</a></li>
-        <li><a href="#2-technology-architecture--aws-infrastructure">2. Technology Architecture &amp; AWS Infrastructure</a></li>
-        <li><a href="#3-postgresql-database-design">3. PostgreSQL Database Design</a></li>
-        <li><a href="#4-core-features">4. Core Features</a></li>
-        <li><a href="#5-aws-production-deployment">5. AWS Production Deployment</a></li>
-        <li><a href="#6-cicd-pipeline-with-aws-codepipeline">6. CI/CD Pipeline with AWS CodePipeline</a></li>
-        <li><a href="#7-monitoring-with-amazon-cloudwatch">7. Monitoring with Amazon CloudWatch</a></li>
-        <li><a href="#8-performance-evaluation">8. Performance Evaluation</a></li>
+        <li><a href="#current-problems">Current Problems</a></li>
+        <li><a href="#solution">Solution</a></li>
       </ul>
     </li>
+    <li><a href="#3-solution-architecture">3. Solution Architecture</a></li>
+    <li><a href="#4-timeline">4. Timeline</a></li>
+    <li><a href="#5-budget">5. Budget</a></li>
+    <li><a href="#6-risks">6. Risks</a></li>
   </ul>
 </nav></div>
 </div>
@@ -531,357 +530,256 @@
 
 
 	<h1 id="personal-expense-manager-pem">Personal Expense Manager (PEM)</h1>
-<h3 id="1-project-overview--objectives">1. Project Overview &amp; Objectives</h3>
-<p>The <strong>Personal Expense Manager (PEM)</strong> is a full-stack web application designed to solve a real-world problem: helping users track, analyze, and control their personal finances in a visual and efficient manner. According to surveys, over 60% of Vietnamese people do not have a habit of systematically tracking their expenses, leading to poor financial control and ineffective savings.</p>
-<p>The project is built entirely on the <strong>AWS platform</strong>, demonstrating the ability to integrate cloud services into real-world products and showcasing the knowledge accumulated during 3 weeks of AWS Services training. Core objectives of the project:</p>
+<h2 id="1-project-overview">1. Project Overview</h2>
+<p>Spendwise is a full-stack personal expense management web application that helps users track, analyze, and control personal finance in a practical and visual way.</p>
+<p>The application is deployed on AWS Cloud to improve flexibility, reliability, and data safety.</p>
+<h2 id="2-problems-and-solution">2. Problems and Solution</h2>
+<h3 id="current-problems">Current Problems</h3>
+<p>For a personal finance application, user data sensitivity and system stability are critical. If deployed on a single server or fragmented self-managed infrastructure, common issues include:</p>
 <ul>
-<li>Help users record income and expenses quickly and easily.</li>
-<li>Categorize transactions by category for spending structure analysis.</li>
-<li>Provide visual statistical reports to help users understand their financial situation.</li>
-<li>Alert users when spending is at risk of exceeding set budgets.</li>
-<li>Support management of multiple financial accounts (cash, bank, credit card&hellip;).</li>
+<li>Financial data loss risk due to manual backup and inconsistent recovery procedures.</li>
+<li>Usage spikes (especially at month start/end) causing slow responses, congestion, and outages.</li>
+<li>Direct server patching/upgrades leading to configuration drift and operational mistakes.</li>
+<li>Lack of centralized observability, increasing incident detection and recovery time.</li>
+<li>Weak security posture when access control and infrastructure policy are not standardized.</li>
 </ul>
-<h3 id="2-technology-architecture--aws-infrastructure">2. Technology Architecture &amp; AWS Infrastructure</h3>
-<h4 id="tech-stack-details">Tech Stack Details:</h4>
+<h3 id="solution">Solution</h3>
+<p>To address these issues, Spendwise adopts an AWS cloud architecture:</p>
+<ul>
+<li>Modern frontend: Next.js hosted and deployed on AWS Amplify.</li>
+<li>Backend service: NestJS deployed on AWS ECS Fargate.</li>
+<li>Network foundation: VPC-based architecture with public/private segmentation and ALB traffic distribution.</li>
+</ul>
+<h2 id="3-solution-architecture">3. Solution Architecture</h2>
+<p>The architecture follows a practical 3-tier cloud model.</p>
+<p><strong>AWS Services</strong></p>
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Layer / Component</th>
-          <th style="text-align: left">Technology &amp; Service</th>
+          <th style="text-align: left">Service</th>
+          <th style="text-align: left">Role in SpendWise</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left"><strong>Frontend Framework</strong></td>
-          <td style="text-align: left">Next.js 14 (App Router), TypeScript</td>
+          <td style="text-align: left"><strong>Amazon VPC</strong></td>
+          <td style="text-align: left">Private network with public/private subnets across AZs for access/data isolation.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>Frontend UI</strong></td>
-          <td style="text-align: left">Tailwind CSS, Shadcn/ui component library</td>
+          <td style="text-align: left"><strong>NAT Gateway</strong></td>
+          <td style="text-align: left">Enables outbound internet access from private subnets when needed.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>Frontend Charts</strong></td>
-          <td style="text-align: left">Chart.js with react-chartjs-2 wrapper</td>
+          <td style="text-align: left"><strong>Security Group</strong></td>
+          <td style="text-align: left">Firewall policy for ALB, ECS, RDS, bastion, and VPC endpoints.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>Frontend State</strong></td>
-          <td style="text-align: left">TanStack Query (React Query) v5</td>
+          <td style="text-align: left"><strong>Application Load Balancer</strong></td>
+          <td style="text-align: left">Internet entry point; load balancing and routing to ECS backend.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>Backend Framework</strong></td>
-          <td style="text-align: left">NestJS (Node.js), TypeScript</td>
+          <td style="text-align: left"><strong>Amazon ECS (Fargate)</strong></td>
+          <td style="text-align: left">Runs NestJS backend containers without EC2 management.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>Backend ORM</strong></td>
-          <td style="text-align: left">TypeORM with migration and entity</td>
+          <td style="text-align: left"><strong>Amazon ECR</strong></td>
+          <td style="text-align: left">Container image registry for backend deployments.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>Backend Validation</strong></td>
-          <td style="text-align: left">class-validator, class-transformer</td>
+          <td style="text-align: left"><strong>VPC Endpoint (Interface)</strong></td>
+          <td style="text-align: left">Private connectivity to ECR API, ECR DKR, CloudWatch Logs, and Cognito IDP.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>Backend Docs</strong></td>
-          <td style="text-align: left">Swagger/OpenAPI (@nestjs/swagger)</td>
+          <td style="text-align: left"><strong>VPC Endpoint (Gateway — S3)</strong></td>
+          <td style="text-align: left">Private S3 access path (e.g., image layer pull flows).</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>Database</strong></td>
-          <td style="text-align: left">PostgreSQL 15 on AWS RDS (db.t3.micro)</td>
+          <td style="text-align: left"><strong>Amazon Cognito</strong></td>
+          <td style="text-align: left">User pool/app client for sign-up, login, and account confirmation.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>Caching</strong></td>
-          <td style="text-align: left">Redis 7 on AWS ElastiCache (cache.t3.micro)</td>
+          <td style="text-align: left"><strong>AWS Lambda</strong> (Cognito trigger)</td>
+          <td style="text-align: left">PostConfirmation processing when RDS integration is enabled.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>Authentication</strong></td>
-          <td style="text-align: left">AWS Cognito User Pool + JWT</td>
+          <td style="text-align: left"><strong>Amazon RDS (PostgreSQL)</strong></td>
+          <td style="text-align: left">Relational database in private network for finance data.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>File Storage</strong></td>
-          <td style="text-align: left">AWS S3 (Standard storage class)</td>
+          <td style="text-align: left"><strong>AWS Amplify</strong></td>
+          <td style="text-align: left">Frontend build and hosting pipeline from Git source.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>Email Service</strong></td>
-          <td style="text-align: left">AWS SES (Simple Email Service)</td>
+          <td style="text-align: left"><strong>Amazon Route 53 &amp; ACM</strong></td>
+          <td style="text-align: left">Custom domain and TLS certificate management for API endpoint.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>Serverless</strong></td>
-          <td style="text-align: left">AWS Lambda (Node.js 20.x runtime)</td>
+          <td style="text-align: left"><strong>AWS WAF</strong></td>
+          <td style="text-align: left">Web protection against common attacks (SQLi/XSS/bot traffic) at edge/API entry.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>Scheduling</strong></td>
-          <td style="text-align: left">Amazon EventBridge (CloudWatch Events)</td>
+          <td style="text-align: left"><strong>AWS Secrets Manager (SM)</strong></td>
+          <td style="text-align: left">Secure storage for secret keys, tokens, and DB credentials.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>Frontend Hosting</strong></td>
-          <td style="text-align: left">AWS Amplify + CloudFront CDN</td>
+          <td style="text-align: left"><strong>Amazon EC2 (Bastion)</strong></td>
+          <td style="text-align: left">Controlled jump host for DB operations via SSM/port forwarding.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>Backend Hosting</strong></td>
-          <td style="text-align: left">AWS ECS Fargate (serverless container)</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><strong>Container Registry</strong></td>
-          <td style="text-align: left">Amazon ECR (Elastic Container Registry)</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><strong>Load Balancer</strong></td>
-          <td style="text-align: left">AWS Application Load Balancer (ALB)</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><strong>Networking</strong></td>
-          <td style="text-align: left">AWS VPC, Private/Public Subnets, NAT Gateway</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><strong>CI/CD</strong></td>
-          <td style="text-align: left">AWS CodePipeline + CodeBuild + CodeDeploy</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><strong>Monitoring</strong></td>
-          <td style="text-align: left">Amazon CloudWatch (logs, metrics, alarms)</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><strong>Testing</strong></td>
-          <td style="text-align: left">Jest, Supertest, Testing Library</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><strong>Version Control</strong></td>
-          <td style="text-align: left">Git + GitHub</td>
+          <td style="text-align: left"><strong>Amazon CloudWatch</strong></td>
+          <td style="text-align: left">Centralized logs, metrics, alarms, and operational monitoring.</td>
       </tr>
   </tbody>
 </table>
-<h4 id="aws-architecture-diagram">AWS Architecture Diagram:</h4>
-<p><img src="../images/2-Proposal/AWS_infrastructure_diagram.jpg" alt="PEM AWS Infrastructure Diagram"></p>
-<p><strong>System Architecture:</strong> Next.js (Amplify/CloudFront) → ALB → ECS Fargate (NestJS) → RDS PostgreSQL / ElastiCache Redis / S3, with Lambda + EventBridge for background jobs, Cognito for authentication, CodePipeline CI/CD, CloudWatch monitoring.</p>
-<h3 id="3-postgresql-database-design">3. PostgreSQL Database Design</h3>
-<p>The PostgreSQL database is designed following normalization principles up to <strong>3NF (Third Normal Form)</strong>, ensuring data consistency and good query performance.</p>
+<h2 id="4-timeline">4. Timeline</h2>
+<ul>
+<li>
+<p><strong>Week 1 - Foundation</strong></p>
+<ul>
+<li>Finalize functional and non-functional requirements.</li>
+<li>Initialize Terraform workflow and state strategy.</li>
+<li>Stand up baseline VPC, SG, ALB, ECR, ECS.</li>
+</ul>
+</li>
+<li>
+<p><strong>Week 2 - Identity &amp; App Deployment</strong></p>
+<ul>
+<li>Integrate Cognito authentication flows.</li>
+<li>Push backend image to ECR and deploy ECS service.</li>
+<li>Connect Amplify frontend to live backend endpoint.</li>
+</ul>
+</li>
+<li>
+<p><strong>Week 3 - Data &amp; Hardening</strong></p>
+<ul>
+<li>Enable RDS and run migrations.</li>
+<li>Validate private networking and security hardening.</li>
+<li>Configure HTTPS/custom domain when needed.</li>
+</ul>
+</li>
+<li>
+<p><strong>Week 4 - Stabilization &amp; Handover</strong></p>
+<ul>
+<li>Execute baseline performance and smoke tests.</li>
+<li>Add monitoring, alerting, and operations runbook.</li>
+<li>Review real monthly cost and optimization actions.</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-budget">5. Budget</h2>
+<p>Monthly estimate (USD), based on current AWS pricing references and Spendwise architecture.</p>
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Table Name</th>
-          <th style="text-align: left">Main Columns</th>
-          <th style="text-align: left">Purpose</th>
+          <th>AWS Service</th>
+          <th>Component / Usage</th>
+          <th style="text-align: right">Cost (USD/month)</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left"><strong>users</strong></td>
-          <td style="text-align: left">id (UUID PK), cognito_sub, email, full_name, avatar_url, currency, timezone, created_at</td>
-          <td style="text-align: left">Store user info, linked with Cognito</td>
+          <td>Elastic Load Balancing</td>
+          <td>Application Load Balancer (ALB + LCU)</td>
+          <td style="text-align: right">$18 - $35</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>accounts</strong></td>
-          <td style="text-align: left">id (UUID PK), user_id (FK), name, type (ENUM), balance, currency, color, icon, is_active</td>
-          <td style="text-align: left">Manage user&rsquo;s financial accounts</td>
+          <td>Amazon ECS</td>
+          <td>Fargate (vCPU &amp; Memory)</td>
+          <td style="text-align: right">$9 - $25</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>categories</strong></td>
-          <td style="text-align: left">id (UUID PK), user_id (FK), parent_id (FK self-ref), name, type (ENUM), icon, color, is_default</td>
-          <td style="text-align: left">Transaction categorization, supports hierarchy</td>
+          <td>Amazon VPC</td>
+          <td>VPC Endpoints (Interface + Gateway)</td>
+          <td style="text-align: right">$20 - $70</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>transactions</strong></td>
-          <td style="text-align: left">id (UUID PK), user_id (FK), account_id (FK), category_id (FK), amount, type (ENUM), description, date, receipt_url</td>
-          <td style="text-align: left">Record all financial transactions</td>
+          <td>Amazon VPC</td>
+          <td>NAT Gateway (optional)</td>
+          <td style="text-align: right">$0 or $33 - $60</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>budgets</strong></td>
-          <td style="text-align: left">id (UUID PK), user_id (FK), category_id (FK), amount_limit, spent_amount, period_type (ENUM), start_date, end_date</td>
-          <td style="text-align: left">Set and track budget limits</td>
+          <td>Amazon RDS</td>
+          <td>PostgreSQL (small Single-AZ)</td>
+          <td style="text-align: right">$12 - $35</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>budget_alerts</strong></td>
-          <td style="text-align: left">id (UUID PK), budget_id (FK), alert_type (ENUM: 80%, 100%), sent_at, email_sent_to</td>
-          <td style="text-align: left">History of budget alert emails sent</td>
+          <td>AWS Amplify</td>
+          <td>Frontend hosting + build</td>
+          <td style="text-align: right">$5 - $20</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>report_exports</strong></td>
-          <td style="text-align: left">id (UUID PK), user_id (FK), type (ENUM: PDF/EXCEL), s3_key, s3_url, expires_at, created_at</td>
-          <td style="text-align: left">Store exported report download links</td>
+          <td>Amazon Cognito</td>
+          <td>MAU &amp; auth flow</td>
+          <td style="text-align: right">$0 - $10</td>
+      </tr>
+      <tr>
+          <td>Amazon ECR</td>
+          <td>Image storage</td>
+          <td style="text-align: right">$1 - $8</td>
+      </tr>
+      <tr>
+          <td>Amazon CloudWatch</td>
+          <td>Logs / Metrics / Alarms</td>
+          <td style="text-align: right">$3 - $15</td>
+      </tr>
+      <tr>
+          <td>Amazon Route 53</td>
+          <td>Hosted zone + DNS queries</td>
+          <td style="text-align: right">$0 - $5</td>
+      </tr>
+      <tr>
+          <td>AWS WAF</td>
+          <td>Web ACL + Rules + Requests (optional)</td>
+          <td style="text-align: right">$0 or $8 - $25</td>
+      </tr>
+      <tr>
+          <td>AWS Secrets Manager</td>
+          <td>Secret storage + API calls</td>
+          <td style="text-align: right">$1 - $6</td>
+      </tr>
+      <tr>
+          <td>Amazon EC2</td>
+          <td>Bastion (optional)</td>
+          <td style="text-align: right">$0 or $5 - $12</td>
+      </tr>
+      <tr>
+          <td><strong>TOTAL AWS COST</strong></td>
+          <td></td>
+          <td style="text-align: right"><strong>$69 - $326</strong></td>
       </tr>
   </tbody>
 </table>
-<p><strong>Key indexes for query optimization:</strong></p>
+<p>Cost control recommendations:</p>
 <ul>
-<li><code>idx_transactions_user_date</code> on transactions(user_id, date DESC)</li>
-<li><code>idx_transactions_category</code> on transactions(category_id, date)</li>
-<li><code>idx_budgets_active</code> on budgets(user_id, is_active, start_date, end_date)</li>
+<li>Temporarily disable bastion when DB interactive access is not required.</li>
+<li>Disable custom domain (Route 53 + ACM) in early stages and use default endpoints.</li>
+<li>Keep only one small Single-AZ RDS instance during development.</li>
+<li>Reduce CloudWatch retention for low-value logs.</li>
+<li>Watch NAT Gateway costs closely and prefer endpoint-based private access where applicable.</li>
 </ul>
-<h3 id="4-core-features">4. Core Features</h3>
-<h4 id="41-user-authentication-aws-cognito">4.1. User Authentication (AWS Cognito)</h4>
+<h2 id="6-risks">6. Risks</h2>
 <ul>
-<li><strong>Registration:</strong> Users sign up with name, email, and password → Cognito sends 6-digit OTP via email → User verifies OTP → Account activated → Auto-login to dashboard.</li>
-<li><strong>Login:</strong> Frontend calls Cognito SDK (initiateAuth API) → Returns AccessToken (1h), IdToken (1h), RefreshToken (30d) → Backend verifies JWT via Cognito JWKS endpoint.</li>
-<li><strong>Forgot Password:</strong> User enters email → Cognito sends verification code → User enters code + new password → Password updated.</li>
+<li>
+<p><strong>Cost spike risk</strong> on NAT/ALB under traffic growth or misconfiguration.<br>
+<em>Mitigation</em>: budget alarms, weekly cost review, right-sizing.</p>
+</li>
+<li>
+<p><strong>Config drift risk</strong> across frontend/backend/Cognito secrets and environment variables.<br>
+<em>Mitigation</em>: standardized env templates and release checklist.</p>
+</li>
+<li>
+<p><strong>Database operation risk</strong> (migration, connection pool, backup quality).<br>
+<em>Mitigation</em>: controlled migration process, restore drills, DB monitoring.</p>
+</li>
+<li>
+<p><strong>Deployment interruption risk</strong> if image/deploy automation is incomplete.<br>
+<em>Mitigation</em>: standardized build/push/deploy pipeline and smoke tests.</p>
+</li>
+<li>
+<p><strong>Security risk</strong> from broad inbound rules or exposed credentials.<br>
+<em>Mitigation</em>: least-privilege policy, secure secret storage, periodic IAM/SG review.</p>
+</li>
 </ul>
-<h4 id="42-overview-dashboard">4.2. Overview Dashboard</h4>
-<p>The Dashboard provides a comprehensive overview of finances in the current period (default: current month):</p>
-<ul>
-<li><strong>Summary Cards:</strong> Total Income (green), Total Expenses (red), Net Balance, Total Assets.</li>
-<li><strong>Bar Chart:</strong> Compares total income and expenses monthly for the past 6 months. Data cached on Redis with 10-minute TTL.</li>
-<li><strong>Pie Chart:</strong> Shows spending distribution by category with legend.</li>
-<li><strong>Recent Transactions:</strong> Displays 5 most recent transactions with &ldquo;View All&rdquo; link.</li>
-</ul>
-<h4 id="43-financial-account-management">4.3. Financial Account Management</h4>
-<ul>
-<li><strong>Account List:</strong> Displays all financial accounts as cards (icon, name, type, current balance, action buttons).</li>
-<li><strong>Add New Account:</strong> Name, Type (Cash/Bank Account/Credit Card/E-Wallet/Investment), Initial Balance, Currency, Color, Icon.</li>
-<li><strong>Total Assets Card:</strong> Sum of positive balances – Credit card debts.</li>
-</ul>
-<h4 id="44-transaction-management">4.4. Transaction Management</h4>
-<p>Transactions are divided into 3 types: <strong>Income</strong>, <strong>Expense</strong>, and <strong>Transfer</strong> (between internal accounts).</p>
-<ul>
-<li><strong>Transaction List:</strong> All transactions sorted by date descending, grouped by day.</li>
-<li><strong>Add Transaction:</strong> Type tabs, Amount input, Category grid, Account dropdown, DateTime picker, Notes, Receipt upload (direct to S3 via presigned URL).</li>
-<li><strong>Advanced Filters:</strong> Date range, Transaction type, Categories, Accounts, Amount range, Full-text keyword search.</li>
-</ul>
-<h4 id="45-category-management">4.5. Category Management</h4>
-<ul>
-<li><strong>Default Categories (Expense):</strong> 🍽️ Food, 🚗 Transport, 🛒 Shopping, 🏠 Housing, 💊 Health, 🎓 Education, 🎬 Entertainment, 💝 Family &amp; Friends, 💳 Finance.</li>
-<li><strong>Default Categories (Income):</strong> 💰 Salary, 📈 Investment, 🏢 Business, 🎁 Others.</li>
-<li><strong>Custom Categories:</strong> Users can create their own categories with name, type, parent category, icon (200+ emojis), and color.</li>
-</ul>
-<h4 id="46-budget-management">4.6. Budget Management</h4>
-<ul>
-<li><strong>Create Budget:</strong> Select expense category, set limit amount, choose period (Monthly/Weekly/Custom), toggle Active status.</li>
-<li><strong>Track Progress:</strong> Progress bar with color coding (&lt;70% green, 70-90% yellow, 90-100% orange, &gt;100% red).</li>
-<li><strong>AWS Lambda + SES Alert System:</strong> Lambda function triggered by EventBridge every hour → Queries active budgets at ≥80% usage → Sends HTML email via SES → Logs to <code>budget_alerts</code> table to prevent duplicates. Also checks for 100% (over-budget) alerts.</li>
-</ul>
-<h4 id="47-statistical-reports--export">4.7. Statistical Reports &amp; Export</h4>
-<ul>
-<li><strong>Comprehensive Report:</strong> Line chart of daily income/expense trends, summary table, breakdown by category, comparison with previous period.</li>
-<li><strong>PDF Export:</strong> Generated by <code>pdfkit</code> on NestJS, includes user header, SVG charts, transaction list.</li>
-<li><strong>Excel Export:</strong> Generated by <code>exceljs</code> with multiple sheets (Summary, Full Transactions, Category Statistics).</li>
-<li>Files uploaded to S3 with presigned URL (1-hour validity), stored in <code>report_exports</code> table.</li>
-</ul>
-<h4 id="48-profile-settings">4.8. Profile Settings</h4>
-<ul>
-<li>Personal info, avatar upload (to S3), default currency, timezone, password change, budget alert email preferences.</li>
-</ul>
-<h3 id="5-aws-production-deployment">5. AWS Production Deployment</h3>
-<h4 id="51-frontend--aws-amplify--cloudfront">5.1. Frontend – AWS Amplify + CloudFront</h4>
-<ul>
-<li>Next.js 14 deployed on AWS Amplify, auto-detect and build on push to <code>main</code> branch.</li>
-<li>CloudFront CDN for global content distribution from edge locations.</li>
-<li>Environment variables configured in Amplify Console (Cognito Pool ID, API endpoint).</li>
-</ul>
-<h4 id="52-backend--aws-ecs-fargate">5.2. Backend – AWS ECS Fargate</h4>
-<ul>
-<li>Multi-stage Dockerfile for optimized image size.</li>
-<li>Docker image pushed to ECR with git SHA tag.</li>
-<li>ECS Task Definition: 0.5 vCPU, 1GB RAM, env vars from Secrets Manager.</li>
-<li>Auto-scaling based on CPU utilization (scale-out &gt;70%, scale-in &lt;30%).</li>
-<li>Rolling deployment for zero-downtime updates.</li>
-</ul>
-<h4 id="53-database--amazon-rds-postgresql">5.3. Database – Amazon RDS PostgreSQL</h4>
-<ul>
-<li>db.t3.micro for dev, db.t3.small for production.</li>
-<li>20GB SSD with Storage Autoscaling.</li>
-<li>Multi-AZ Deployment with automatic failover (&lt;60s).</li>
-<li>Daily automated backup at 3 AM, 7-day retention with PITR support.</li>
-<li>Located in private subnet, storage encryption with AWS KMS.</li>
-</ul>
-<h4 id="54-caching--amazon-elasticache-redis">5.4. Caching – Amazon ElastiCache Redis</h4>
-<ul>
-<li>Redis 7 single node (cache.t3.micro) in private subnet.</li>
-<li>Cache key strategy: <code>user:{userId}:dashboard:stats:{period}</code> with 10-min TTL.</li>
-<li>Auto-invalidation on transaction changes.</li>
-</ul>
-<h3 id="6-cicd-pipeline-with-aws-codepipeline">6. CI/CD Pipeline with AWS CodePipeline</h3>
-<p>The pipeline consists of 4 stages:</p>
-<ol>
-<li><strong>Source:</strong> Connected to GitHub, auto-triggers on push to <code>main</code>.</li>
-<li><strong>Build (CodeBuild):</strong> Run unit tests (<code>jest --coverage</code>), build Docker image, tag &amp; push to ECR.</li>
-<li><strong>Deploy to Staging:</strong> Auto-deploy to staging ECS, run smoke tests.</li>
-<li><strong>Deploy to Production:</strong> Manual approval required, then deploy to production ECS.</li>
-</ol>
-<h3 id="7-monitoring-with-amazon-cloudwatch">7. Monitoring with Amazon CloudWatch</h3>
-<h4 id="cloudwatch-dashboard-metrics">CloudWatch Dashboard Metrics:</h4>
-<ul>
-<li><strong>ECS:</strong> CPUUtilization, MemoryUtilization, running task count.</li>
-<li><strong>ALB:</strong> RequestCount, TargetResponseTime, HTTPCode_Target_5XX_Count.</li>
-<li><strong>RDS:</strong> DatabaseConnections, CPUUtilization, FreeStorageSpace.</li>
-<li><strong>Lambda:</strong> Invocations, Duration, Errors.</li>
-<li><strong>ElastiCache:</strong> CacheHits, CacheMisses, CurrConnections.</li>
-</ul>
-<h4 id="cloudwatch-alarms">CloudWatch Alarms:</h4>
-<ul>
-<li>ECS CPU &gt; 80% for 5 minutes → SNS email notification.</li>
-<li>RDS Connections &gt; 80 → Connection pool warning.</li>
-<li>ALB HTTP 5xx &gt; 10 errors/min → Critical backend error alert.</li>
-<li>Lambda Error Rate &gt; 5% → Budget checker issue alert.</li>
-</ul>
-<h3 id="8-performance-evaluation">8. Performance Evaluation</h3>
-<table>
-  <thead>
-      <tr>
-          <th style="text-align: left">Metric</th>
-          <th style="text-align: left">Measured Result</th>
-          <th style="text-align: left">Target</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td style="text-align: left">API Response Time (p50)</td>
-          <td style="text-align: left">45ms</td>
-          <td style="text-align: left">&lt; 200ms ✅</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">API Response Time (p95)</td>
-          <td style="text-align: left">120ms</td>
-          <td style="text-align: left">&lt; 500ms ✅</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">API Response Time (p99)</td>
-          <td style="text-align: left">280ms</td>
-          <td style="text-align: left">&lt; 1000ms ✅</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Dashboard load time (with cache)</td>
-          <td style="text-align: left">180ms</td>
-          <td style="text-align: left">&lt; 300ms ✅</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Dashboard load time (cold)</td>
-          <td style="text-align: left">650ms</td>
-          <td style="text-align: left">&lt; 1000ms ✅</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Unit Test Coverage</td>
-          <td style="text-align: left">78.3%</td>
-          <td style="text-align: left">&gt; 75% ✅</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Integration Tests Pass Rate</td>
-          <td style="text-align: left">100%</td>
-          <td style="text-align: left">100% ✅</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">RDS Max Connections (concurrent)</td>
-          <td style="text-align: left">32/100</td>
-          <td style="text-align: left">&lt; 80 ✅</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">ECS CPU Utilization (normal load)</td>
-          <td style="text-align: left">18%</td>
-          <td style="text-align: left">&lt; 70% ✅</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">ElastiCache Hit Rate</td>
-          <td style="text-align: left">87.4%</td>
-          <td style="text-align: left">&gt; 80% ✅</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">S3 Upload Success Rate</td>
-          <td style="text-align: left">99.98%</td>
-          <td style="text-align: left">&gt; 99.9% ✅</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Lambda Execution Duration (avg)</td>
-          <td style="text-align: left">1.2s</td>
-          <td style="text-align: left">&lt; 3s ✅</td>
-      </tr>
-  </tbody>
-</table>
 
 
 
@@ -1156,19 +1054,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1777476847"></script>
-    <script src="../js/perfect-scrollbar.min.js?1777476847"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1777476847"></script>
-    <script src="../js/jquery.sticky.js?1777476847"></script>
-    <script src="../js/featherlight.min.js?1777476847"></script>
-    <script src="../js/highlight.pack.js?1777476847"></script>
+    <script src="../js/clipboard.min.js?1777618044"></script>
+    <script src="../js/perfect-scrollbar.min.js?1777618044"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1777618044"></script>
+    <script src="../js/jquery.sticky.js?1777618044"></script>
+    <script src="../js/featherlight.min.js?1777618044"></script>
+    <script src="../js/highlight.pack.js?1777618044"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom-3.6.0.js?1777476847"></script>
-    <script src="../js/learn.js?1777476847"></script>
-    <script src="../js/hugo-learn.js?1777476847"></script>
+    <script src="../js/modernizr.custom-3.6.0.js?1777618044"></script>
+    <script src="../js/learn.js?1777618044"></script>
+    <script src="../js/hugo-learn.js?1777618044"></script>
 
-    <link href="../mermaid/mermaid.css?1777476847" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1777476847"></script>
+    <link href="../mermaid/mermaid.css?1777618044" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1777618044"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

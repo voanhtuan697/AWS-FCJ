@@ -6,14 +6,6 @@ chapter: false
 pre: " <b> 1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
-**Trong trang này** bạn sẽ cần giới thiệu worklog của bạn **như thế nào**? Bạn hoàn thành chương trình trong vòng **bao nhiêu tuần**? Bạn **đã làm gì** trong các tuần đó?
-
-Tôi đã hoàn thành chương trình AWS Cloud Journey trong vòng **10 tuần** (từ 29/09/2025 đến 07/12/2025), trải qua quá trình học tập từ cơ bản đến nâng cao về các dịch vụ AWS và triển khai dự án thực tế. Dưới đây là tổng quan về các tuần đã hoàn thành:
-
 **Tuần 1 (09/03 - 13/03):** [Làm quen với AWS và các dịch vụ cơ bản](1.1-week1/)
 
 - Tiếp cận nền tảng AWS Cloud và các nhóm dịch vụ chủ chốt (Compute, Storage, Networking, Database)

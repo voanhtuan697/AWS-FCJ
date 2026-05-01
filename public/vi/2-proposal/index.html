@@ -15,21 +15,21 @@
     <title>Bản đề xuất :: Báo cáo thực tập</title>
 
     
-    <link href="../../css/nucleus.css?1777476847" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1777476847" rel="stylesheet">
-    <link href="../../css/hybrid.css?1777476847" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1777476847" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1777476847" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1777476847" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1777476847" rel="stylesheet">
-    <link href="../../css/theme.css?1777476847" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1777476847" rel="stylesheet">
+    <link href="../../css/nucleus.css?1777618044" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1777618044" rel="stylesheet">
+    <link href="../../css/hybrid.css?1777618044" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1777618044" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1777618044" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1777618044" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1777618044" rel="stylesheet">
+    <link href="../../css/theme.css?1777618044" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1777618044" rel="stylesheet">
     
-    <link href="../../css/theme-workshop.css?1777476847" rel="stylesheet">
+    <link href="../../css/theme-workshop.css?1777618044" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1777476847"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1777618044"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1777476847"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1777476847"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1777618044"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1777618044"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/aws-fcj-report\/\/vi";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1777476847"></script>
+<script type="text/javascript" src="../../js/search.js?1777618044"></script>
  
   </div>
 
@@ -494,18 +494,17 @@
                     <div class="progress">
   <div class="wrapper"><nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#1-tổng-quan-dự-án">1. Tổng quan dự án</a></li>
+    <li><a href="#2-vấn-đề-và-giải-pháp">2. Vấn đề và giải pháp</a>
       <ul>
-        <li><a href="#1-tổng-quan-và-mục-tiêu-dự-án">1. Tổng quan và mục tiêu dự án</a></li>
-        <li><a href="#2-kiến-trúc-công-nghệ-và-hạ-tầng-aws">2. Kiến trúc công nghệ và hạ tầng AWS</a></li>
-        <li><a href="#3-thiết-kế-cơ-sở-dữ-liệu-postgresql">3. Thiết kế cơ sở dữ liệu PostgreSQL</a></li>
-        <li><a href="#4-các-chức-năng-chính">4. Các chức năng chính</a></li>
-        <li><a href="#5-triển-khai-hệ-thống-lên-aws-production">5. Triển khai hệ thống lên AWS Production</a></li>
-        <li><a href="#6-cicd-pipeline-với-aws-codepipeline">6. CI/CD Pipeline với AWS CodePipeline</a></li>
-        <li><a href="#7-monitoring-với-amazon-cloudwatch">7. Monitoring với Amazon CloudWatch</a></li>
-        <li><a href="#8-đánh-giá-hiệu-suất-hệ-thống">8. Đánh giá hiệu suất hệ thống</a></li>
+        <li><a href="#vấn-đề-hiện-tại">Vấn đề hiện tại</a></li>
+        <li><a href="#giải-pháp">Giải pháp</a></li>
       </ul>
     </li>
+    <li><a href="#3-kiến-trúc-giải-pháp">3. Kiến trúc giải pháp</a></li>
+    <li><a href="#4-timeline">4. Timeline</a></li>
+    <li><a href="#5-ngân-sách">5. Ngân sách</a></li>
+    <li><a href="#6-rủi-ro">6. Rủi ro</a></li>
   </ul>
 </nav></div>
 </div>
@@ -530,358 +529,258 @@
 
 
 
-	<h1 id="ứng-dụng-quản-lý-chi-tiêu-cá-nhân-pem">Ứng dụng Quản lý Chi tiêu Cá nhân (PEM)</h1>
-<h3 id="1-tổng-quan-và-mục-tiêu-dự-án">1. Tổng quan và mục tiêu dự án</h3>
-<p><strong>Ứng dụng Quản lý Chi tiêu Cá nhân (Personal Expense Manager – PEM)</strong> là một web application hoàn chỉnh được xây dựng nhằm giải quyết bài toán thực tế: giúp người dùng theo dõi, phân tích và kiểm soát tình hình tài chính cá nhân một cách trực quan và hiệu quả. Theo khảo sát, hơn 60% người Việt Nam chưa có thói quen theo dõi chi tiêu một cách hệ thống, dẫn đến khó kiểm soát tài chính cá nhân và tiết kiệm kém hiệu quả.</p>
-<p>Dự án được xây dựng hoàn toàn trên nền tảng <strong>AWS</strong>, thể hiện khả năng tích hợp các dịch vụ đám mây vào sản phẩm thực tế và minh chứng cho kiến thức đã tích lũy trong 3 tuần học AWS Services. Mục tiêu cốt lõi của dự án:</p>
+	<h1 id="đề-xuất-triển-khai-spendwiseapp-trên-aws">Đề xuất triển khai SpendWiseApp trên AWS</h1>
+<h2 id="1-tổng-quan-dự-án">1. Tổng quan dự án</h2>
+<p>Ứng dụng Quản lý Chi tiêu Cá nhân Spendwise là một web application hoàn chỉnh được xây dựng nhằm giải quyết bài toán thực tế: giúp người dùng theo dõi, phân tích và kiểm soát tình hình tài chính cá nhân một cách trực quan và hiệu quả.</p>
+<p>Ứng dụng được triển khai hoàn toàn trên môi trường AWS Cloud nhằm đảm bảo tính linh hoạt và an toàn dữ liệu.</p>
+<h2 id="2-vấn-đề-và-giải-pháp">2. Vấn đề và giải pháp</h2>
+<h3 id="vấn-đề-hiện-tại">Vấn đề hiện tại</h3>
+<p>Với một ứng dụng quản lý chi tiêu, dữ liệu người dùng và độ ổn định của hệ thống là yếu tố cần được chú trọng. Nếu triển khai theo mô hình máy chủ đơn lẻ hoặc hạ tầng tự quản rời rạc, hệ thống sẽ dễ gặp các tình huống:</p>
 <ul>
-<li>Giúp người dùng ghi chép thu nhập và chi tiêu một cách nhanh chóng, dễ dàng.</li>
-<li>Phân loại giao dịch theo danh mục để phân tích cơ cấu chi tiêu.</li>
-<li>Cung cấp báo cáo thống kê trực quan giúp người dùng hiểu rõ tình hình tài chính.</li>
-<li>Cảnh báo khi chi tiêu có nguy cơ vượt ngân sách đã đặt ra.</li>
-<li>Hỗ trợ quản lý nhiều tài khoản tài chính (tiền mặt, ngân hàng, thẻ tín dụng&hellip;).</li>
+<li>Rủi ro mất mát dữ liệu tài chính do backup thủ công, quy trình khôi phục không nhất quán.</li>
+<li>Theo hành vi người dùng lượng truy cập thường tăng đột biến vào đầu/cuối tháng khiến hệ thống phản hồi chậm, dễ nghẽn và gián đoạn.</li>
+<li>Việc nâng cấp phiên bản hoặc sửa lỗi phải thao tác trực tiếp trên máy chủ, dễ phát sinh sai sót cấu hình.</li>
+<li>Khó giám sát tập trung khi có sự cố, dẫn đến thời gian phát hiện và xử lý lỗi kéo dài.</li>
+<li>Khó bảo đảm mức an toàn dữ liệu khi cơ chế phân quyền truy cập và kiểm soát hạ tầng chưa được chuẩn hóa.</li>
 </ul>
-<h3 id="2-kiến-trúc-công-nghệ-và-hạ-tầng-aws">2. Kiến trúc công nghệ và hạ tầng AWS</h3>
-<h4 id="chi-tiết-tech-stack">Chi tiết Tech Stack:</h4>
+<h3 id="giải-pháp">Giải pháp</h3>
+<p>Để cải thiện phần nào vấn đề Spendwise lựa chọn tiếp cận theo kiến trúc Cloud thông qua AWS Cloud:</p>
+<ul>
+<li>Frontend hiện đại: Sử dụng framework NextJS được lưu trữ và triển khai thông qua dịch vụ AWS Amplify</li>
+<li>Backend: Sử dụng framework NestJS và triển khai thông qua AWS ECS Fargate</li>
+<li>Hệ thống mạng: Triển khai trong VPC, tách lớp truy cập public/private và điều phối lưu lượng qua Application Load Balancer.</li>
+</ul>
+<h2 id="3-kiến-trúc-giải-pháp">3. Kiến trúc giải pháp</h2>
+<p>Kiến trúc đề xuất bám sát mô hình 3-tier ứng dụng trên môi trường cloud:</p>
+<!-- ![Sơ đồ kiến trúc AWS của SpendWise](/assets/aws-architecture.jpg) -->
+<p><strong>Các dịch vụ AWS</strong></p>
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Tầng / Thành phần</th>
-          <th style="text-align: left">Công nghệ và dịch vụ sử dụng</th>
+          <th style="text-align: left">Dịch vụ</th>
+          <th style="text-align: left">Vai trò trong SpendWise</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left"><strong>Frontend Framework</strong></td>
-          <td style="text-align: left">Next.js 14 (App Router), TypeScript</td>
+          <td style="text-align: left"><strong>Amazon VPC</strong></td>
+          <td style="text-align: left">Mạng riêng; chia subnet public/private trên nhiều AZ để tách lớp truy cập và dữ liệu.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>Frontend UI</strong></td>
-          <td style="text-align: left">Tailwind CSS, Shadcn/ui component library</td>
+          <td style="text-align: left"><strong>NAT Gateway</strong></td>
+          <td style="text-align: left">Cho subnet private ra internet khi cần (ví dụ outbound không đi qua VPC endpoint).</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>Frontend Charts</strong></td>
-          <td style="text-align: left">Chart.js với react-chartjs-2 wrapper</td>
+          <td style="text-align: left"><strong>Security Group</strong></td>
+          <td style="text-align: left">Tường lửa cho ALB, ECS, RDS, bastion và các VPC endpoint.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>Frontend State</strong></td>
-          <td style="text-align: left">TanStack Query (React Query) v5</td>
+          <td style="text-align: left"><strong>Application Load Balancer</strong></td>
+          <td style="text-align: left">Điểm vào từ internet; cân bằng tải và chuyển traffic tới backend trên ECS.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>Backend Framework</strong></td>
-          <td style="text-align: left">NestJS (Node.js), TypeScript</td>
+          <td style="text-align: left"><strong>Amazon ECS (Fargate)</strong></td>
+          <td style="text-align: left">Chạy container backend NestJS; không quản lý EC2.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>Backend ORM</strong></td>
-          <td style="text-align: left">TypeORM với migration và entity</td>
+          <td style="text-align: left"><strong>Amazon ECR</strong></td>
+          <td style="text-align: left">Lưu image backend để ECS kéo và triển khai.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>Backend Validation</strong></td>
-          <td style="text-align: left">class-validator, class-transformer</td>
+          <td style="text-align: left"><strong>VPC Endpoint (Interface)</strong></td>
+          <td style="text-align: left">Kết nối nội bộ tới ECR API, ECR DKR, CloudWatch Logs, Cognito IDP — task private subnet vận hành mà không cần NAT cho các luồng này.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>Backend Documentation</strong></td>
-          <td style="text-align: left">Swagger/OpenAPI (@nestjs/swagger)</td>
+          <td style="text-align: left"><strong>VPC Endpoint (Gateway — S3)</strong></td>
+          <td style="text-align: left">Truy cập S3 nội bộ (ví dụ blob layer khi kéo image) qua gateway endpoint.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>Database</strong></td>
-          <td style="text-align: left">PostgreSQL 15 trên AWS RDS (db.t3.micro)</td>
+          <td style="text-align: left"><strong>Amazon Cognito</strong></td>
+          <td style="text-align: left">User pool / app client; đăng ký, đăng nhập, xác nhận; có thể gắn Lambda PostConfirmation khi bật RDS.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>Caching</strong></td>
-          <td style="text-align: left">Redis 7 trên AWS ElastiCache (cache.t3.micro)</td>
+          <td style="text-align: left"><strong>AWS Lambda</strong> (Cognito, khi bật RDS)</td>
+          <td style="text-align: left">PostConfirmation: ghi/cập nhật người dùng ứng dụng sau khi xác nhận đăng ký.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>Authentication</strong></td>
-          <td style="text-align: left">AWS Cognito User Pool + JWT</td>
+          <td style="text-align: left"><strong>Amazon RDS (PostgreSQL)</strong></td>
+          <td style="text-align: left">CSDL quan hệ cho dữ liệu chi tiêu; đặt trong mạng private.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>File Storage</strong></td>
-          <td style="text-align: left">AWS S3 (Standard storage class)</td>
+          <td style="text-align: left"><strong>AWS Amplify</strong></td>
+          <td style="text-align: left">Build và host frontend Next.js từ Git; inject biến môi trường (ví dụ URL API) lúc build.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>Email Service</strong></td>
-          <td style="text-align: left">AWS SES (Simple Email Service)</td>
+          <td style="text-align: left"><strong>Amazon Route 53 &amp; ACM</strong></td>
+          <td style="text-align: left">Tên miền API và TLS khi dùng custom domain cho backend.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>Serverless</strong></td>
-          <td style="text-align: left">AWS Lambda (Node.js 20.x runtime)</td>
+          <td style="text-align: left"><strong>AWS WAF</strong></td>
+          <td style="text-align: left">Lớp bảo vệ web trước các request độc hại phổ biến (SQLi/XSS/bot), giảm rủi ro tấn công vào ALB/API.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>Scheduling</strong></td>
-          <td style="text-align: left">Amazon EventBridge (CloudWatch Events)</td>
+          <td style="text-align: left"><strong>AWS Secrets Manager (SM)</strong></td>
+          <td style="text-align: left">Lưu trữ và quản lý an toàn secret key, token, mật khẩu DB.</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>Frontend Hosting</strong></td>
-          <td style="text-align: left">AWS Amplify + CloudFront CDN</td>
+          <td style="text-align: left"><strong>Amazon EC2 (Bastion)</strong></td>
+          <td style="text-align: left">Máy nhảy vào VPC để vận hành DB (SSM / port forwarding)</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>Backend Hosting</strong></td>
-          <td style="text-align: left">AWS ECS Fargate (serverless container)</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><strong>Container Registry</strong></td>
-          <td style="text-align: left">Amazon ECR (Elastic Container Registry)</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><strong>Load Balancer</strong></td>
-          <td style="text-align: left">AWS Application Load Balancer (ALB)</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><strong>Networking</strong></td>
-          <td style="text-align: left">AWS VPC, Private/Public Subnets, NAT Gateway</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><strong>CI/CD</strong></td>
-          <td style="text-align: left">AWS CodePipeline + CodeBuild + CodeDeploy</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><strong>Monitoring</strong></td>
-          <td style="text-align: left">Amazon CloudWatch (logs, metrics, alarms)</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><strong>Testing</strong></td>
-          <td style="text-align: left">Jest, Supertest, Testing Library</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><strong>Version Control</strong></td>
-          <td style="text-align: left">Git + GitHub</td>
+          <td style="text-align: left"><strong>Amazon CloudWatch</strong></td>
+          <td style="text-align: left">Log container ECS và nền tảng giám sát (module monitoring) cho vận hành, cảnh báo.</td>
       </tr>
   </tbody>
 </table>
-<h4 id="sơ-đồ-kiến-trúc-hệ-thống-trên-aws">Sơ đồ kiến trúc hệ thống trên AWS:</h4>
-<p><img src="../../images/2-Proposal/AWS_infrastructure_diagram.jpg" alt="Sơ đồ kiến trúc hạ tầng AWS của PEM"></p>
-<p><strong>Kiến trúc hệ thống:</strong> Next.js (Amplify/CloudFront) → ALB → ECS Fargate (NestJS) → RDS PostgreSQL / ElastiCache Redis / S3, với Lambda + EventBridge xử lý background job, Cognito xác thực, CodePipeline CI/CD, CloudWatch monitoring.</p>
-<h3 id="3-thiết-kế-cơ-sở-dữ-liệu-postgresql">3. Thiết kế cơ sở dữ liệu PostgreSQL</h3>
-<p>Cơ sở dữ liệu PostgreSQL được thiết kế theo nguyên tắc chuẩn hóa đến dạng <strong>chuẩn 3NF (Third Normal Form)</strong>, đảm bảo tính nhất quán dữ liệu và hiệu suất truy vấn tốt.</p>
+<h2 id="4-timeline">4. Timeline</h2>
+<ul>
+<li>
+<p><strong>Tuần 1 - Foundation</strong></p>
+<ul>
+<li>Chốt yêu cầu chức năng và NFR.</li>
+<li>Khởi tạo Terraform backend/state strategy.</li>
+<li>Dựng VPC, SG, ALB, ECR, ECS cơ bản.</li>
+</ul>
+</li>
+<li>
+<p><strong>Tuần 2 - Identity &amp; App Deployment</strong></p>
+<ul>
+<li>Tích hợp Cognito (đăng ký/đăng nhập).</li>
+<li>Đẩy backend image lên ECR và rollout ECS.</li>
+<li>Kết nối frontend Amplify với API endpoint thực tế.</li>
+</ul>
+</li>
+<li>
+<p><strong>Tuần 3 - Data &amp; Hardening</strong></p>
+<ul>
+<li>Bật RDS và migration dữ liệu.</li>
+<li>Kiểm tra private networking, security hardening.</li>
+<li>Thiết lập HTTPS/custom domain (nếu áp dụng).</li>
+</ul>
+</li>
+<li>
+<p><strong>Tuần 4 - Stabilization &amp; Handover</strong></p>
+<ul>
+<li>Kiểm thử hiệu năng cơ bản.</li>
+<li>Thiết lập giám sát, cảnh báo, runbook vận hành.</li>
+<li>Đánh giá chi phí thực tế và kế hoạch tối ưu tháng tiếp theo.</li>
+</ul>
+</li>
+</ul>
+<h2 id="5-ngân-sách">5. Ngân sách</h2>
+<p>Ước tính tham chiếu theo chi phí <strong>1 tháng</strong> (USD), dựa trên pricing hiện tại từ AWS Pricing và cấu hình dịch vụ trong SpendWise:</p>
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">Tên bảng</th>
-          <th style="text-align: left">Các cột chính</th>
-          <th style="text-align: left">Mục đích</th>
+          <th>Dịch vụ AWS</th>
+          <th>Thành phần / Sử dụng</th>
+          <th style="text-align: right">Chi phí (USD/tháng)</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left"><strong>users</strong></td>
-          <td style="text-align: left">id (UUID PK), cognito_sub, email, full_name, avatar_url, currency, timezone, created_at</td>
-          <td style="text-align: left">Lưu thông tin người dùng, liên kết với Cognito</td>
+          <td>Elastic Load Balancing</td>
+          <td>Application Load Balancer (ALB + LCU)</td>
+          <td style="text-align: right">$18 - $35</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>accounts</strong></td>
-          <td style="text-align: left">id (UUID PK), user_id (FK), name, type (ENUM), balance, currency, color, icon, is_active</td>
-          <td style="text-align: left">Quản lý các tài khoản tài chính của người dùng</td>
+          <td>Amazon ECS</td>
+          <td>Fargate (vCPU &amp; Memory)</td>
+          <td style="text-align: right">$9 - $25</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>categories</strong></td>
-          <td style="text-align: left">id (UUID PK), user_id (FK), parent_id (FK tự tham chiếu), name, type (ENUM), icon, color, is_default</td>
-          <td style="text-align: left">Danh mục phân loại giao dịch, hỗ trợ phân cấp</td>
+          <td>Amazon VPC</td>
+          <td>VPC Endpoints (Interface + Gateway)</td>
+          <td style="text-align: right">$20 - $70</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>transactions</strong></td>
-          <td style="text-align: left">id (UUID PK), user_id (FK), account_id (FK), category_id (FK), amount, type (ENUM), description, date, receipt_url</td>
-          <td style="text-align: left">Ghi chép mọi giao dịch tài chính</td>
+          <td>Amazon VPC</td>
+          <td>NAT Gateway (nếu bật)</td>
+          <td style="text-align: right">$0 hoặc $33 - $60</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>budgets</strong></td>
-          <td style="text-align: left">id (UUID PK), user_id (FK), category_id (FK), amount_limit, spent_amount, period_type (ENUM), start_date, end_date</td>
-          <td style="text-align: left">Thiết lập và theo dõi hạn mức ngân sách</td>
+          <td>Amazon RDS</td>
+          <td>PostgreSQL (Single-AZ nhỏ)</td>
+          <td style="text-align: right">$12 - $35</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>budget_alerts</strong></td>
-          <td style="text-align: left">id (UUID PK), budget_id (FK), alert_type (ENUM: 80%, 100%), sent_at, email_sent_to</td>
-          <td style="text-align: left">Lịch sử các email cảnh báo ngân sách đã gửi</td>
+          <td>AWS Amplify</td>
+          <td>Frontend hosting + build</td>
+          <td style="text-align: right">$5 - $20</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>report_exports</strong></td>
-          <td style="text-align: left">id (UUID PK), user_id (FK), type (ENUM: PDF/EXCEL), s3_key, s3_url, expires_at, created_at</td>
-          <td style="text-align: left">Lưu trữ link download báo cáo đã xuất</td>
+          <td>Amazon Cognito</td>
+          <td>MAU &amp; auth flow</td>
+          <td style="text-align: right">$0 - $10</td>
+      </tr>
+      <tr>
+          <td>Amazon ECR</td>
+          <td>Image storage</td>
+          <td style="text-align: right">$1 - $8</td>
+      </tr>
+      <tr>
+          <td>Amazon CloudWatch</td>
+          <td>Logs / Metrics / Alarms</td>
+          <td style="text-align: right">$3 - $15</td>
+      </tr>
+      <tr>
+          <td>Amazon Route 53</td>
+          <td>Hosted zone + DNS query</td>
+          <td style="text-align: right">$0 - $5</td>
+      </tr>
+      <tr>
+          <td>AWS WAF</td>
+          <td>Web ACL + Rules + Requests (nếu bật)</td>
+          <td style="text-align: right">$0 hoặc $8 - $25</td>
+      </tr>
+      <tr>
+          <td>AWS Secrets Manager</td>
+          <td>Secrets lưu trữ + API calls</td>
+          <td style="text-align: right">$1 - $6</td>
+      </tr>
+      <tr>
+          <td>Amazon EC2</td>
+          <td>Bastion (nếu bật)</td>
+          <td style="text-align: right">$0 hoặc $5 - $12</td>
+      </tr>
+      <tr>
+          <td><strong>TỔNG CHI PHÍ AWS</strong></td>
+          <td></td>
+          <td style="text-align: right"><strong>$69 - $326</strong></td>
       </tr>
   </tbody>
 </table>
-<p><strong>Các index quan trọng để tối ưu hiệu suất truy vấn:</strong></p>
+<p>Đề xuất kiểm soát chi phí:</p>
 <ul>
-<li><code>idx_transactions_user_date</code> trên transactions(user_id, date DESC)</li>
-<li><code>idx_transactions_category</code> trên transactions(category_id, date)</li>
-<li><code>idx_budgets_active</code> trên budgets(user_id, is_active, start_date, end_date)</li>
+<li>Giai đoạn đầu khi phát triển có thể tạm thời tắt Bastion nếu chưa có nhu cầu tương tác vào DB vào RDS.</li>
+<li>Có thể tạm tắt custom domain (Route 53 + ACM), sử dụng endpoint mặc định để giảm chi phí cố định.</li>
+<li>Chỉ duy trì 1 RDS duy nhất (Single-AZ, cấu hình nhỏ) để tránh phát sinh chi phí do nhân bản DB không cần thiết.</li>
+<li>Tối ưu retention log CloudWatch, tránh lưu log quá dài.</li>
+<li>Theo dõi sát chi phí NAT Gateway; cân nhắc endpoint/private pull strategy khi cần.</li>
 </ul>
-<h3 id="4-các-chức-năng-chính">4. Các chức năng chính</h3>
-<h4 id="41-xác-thực-người-dùng-aws-cognito">4.1. Xác thực người dùng (AWS Cognito)</h4>
+<h2 id="6-rủi-ro">6. Rủi ro</h2>
 <ul>
-<li><strong>Đăng ký:</strong> Người dùng nhập họ tên, email, mật khẩu → Cognito gửi OTP 6 chữ số qua email → Xác thực OTP → Tài khoản kích hoạt → Tự động đăng nhập vào dashboard.</li>
-<li><strong>Đăng nhập:</strong> Frontend gọi Cognito SDK (initiateAuth API) → Trả về AccessToken (1h), IdToken (1h), RefreshToken (30d) → Backend verify JWT qua Cognito JWKS endpoint.</li>
-<li><strong>Quên mật khẩu:</strong> Nhập email → Cognito gửi mã xác thực → Nhập mã + mật khẩu mới → Cập nhật thành công.</li>
+<li>
+<p><strong>Rủi ro chi phí NAT/ALB tăng nhanh</strong> khi traffic tăng hoặc cấu hình chưa tối ưu.<br>
+<em>Giảm thiểu</em>: đặt budget alarm, review cost theo tuần, right-size tài nguyên.</p>
+</li>
+<li>
+<p><strong>Sai lệch cấu hình secret/env giữa frontend-backend-cognito</strong> gây lỗi auth hoặc API.<br>
+<em>Giảm thiểu</em>: chuẩn hóa biến môi trường theo môi trường, checklist release bắt buộc.</p>
+</li>
+<li>
+<p><strong>Rủi ro vận hành DB</strong> khi bật RDS (migration, connection pool, backup).<br>
+<em>Giảm thiểu</em>: migration có kiểm soát, test restore định kỳ, giám sát connection.</p>
+</li>
+<li>
+<p><strong>Gián đoạn triển khai do quy trình image/deploy chưa tự động hoàn toàn</strong>.<br>
+<em>Giảm thiểu</em>: chuẩn hóa pipeline build/push/deploy, thêm smoke test sau release.</p>
+</li>
+<li>
+<p><strong>Rủi ro bảo mật hạ tầng</strong> nếu mở inbound rộng hoặc để lộ credential trong tfvars.<br>
+<em>Giảm thiểu</em>: nguyên tắc least privilege, quản lý secret an toàn, review SG/IAM định kỳ.</p>
+</li>
 </ul>
-<h4 id="42-dashboard-tổng-quan">4.2. Dashboard Tổng quan</h4>
-<p>Dashboard cung cấp cái nhìn tổng quan về tình hình tài chính trong kỳ hiện tại (mặc định: tháng hiện tại):</p>
-<ul>
-<li><strong>Thẻ thống kê nhanh:</strong> Tổng Thu nhập (xanh lá), Tổng Chi tiêu (đỏ), Số dư ròng, Tổng tài sản.</li>
-<li><strong>Biểu đồ cột:</strong> So sánh tổng thu nhập và chi tiêu theo từng tháng trong 6 tháng gần nhất. Dữ liệu cache trên Redis với TTL 10 phút.</li>
-<li><strong>Biểu đồ tròn:</strong> Hiển thị tỷ lệ chi tiêu theo từng danh mục kèm legend.</li>
-<li><strong>Giao dịch gần nhất:</strong> Hiển thị 5 giao dịch mới nhất với link &ldquo;Xem tất cả&rdquo;.</li>
-</ul>
-<h4 id="43-quản-lý-tài-khoản-tài-chính">4.3. Quản lý Tài khoản Tài chính</h4>
-<ul>
-<li><strong>Danh sách tài khoản:</strong> Hiển thị theo dạng thẻ (card) với icon, tên, loại, số dư, nút hành động.</li>
-<li><strong>Thêm tài khoản mới:</strong> Tên, Loại (Ví tiền mặt / Ngân hàng / Thẻ tín dụng / Ví điện tử / Đầu tư), Số dư ban đầu, Đơn vị tiền tệ, Màu sắc, Icon.</li>
-<li><strong>Thẻ tổng hợp:</strong> Tổng tài sản = Tổng số dư dương – Tổng nợ thẻ tín dụng.</li>
-</ul>
-<h4 id="44-quản-lý-giao-dịch">4.4. Quản lý Giao dịch</h4>
-<p>Giao dịch được chia thành 3 loại: <strong>Thu nhập (Income)</strong>, <strong>Chi tiêu (Expense)</strong> và <strong>Chuyển tiền (Transfer)</strong>.</p>
-<ul>
-<li><strong>Danh sách giao dịch:</strong> Sắp xếp theo ngày giảm dần, phân nhóm theo ngày.</li>
-<li><strong>Thêm giao dịch:</strong> Tab chọn loại, nhập số tiền, chọn danh mục, chọn tài khoản, chọn ngày giờ, ghi chú, upload hóa đơn (trực tiếp lên S3 qua presigned URL).</li>
-<li><strong>Bộ lọc nâng cao:</strong> Khoảng thời gian, Loại giao dịch, Danh mục, Tài khoản, Khoảng số tiền, Tìm kiếm full-text.</li>
-</ul>
-<h4 id="45-quản-lý-danh-mục">4.5. Quản lý Danh mục</h4>
-<ul>
-<li><strong>Danh mục chi tiêu mặc định:</strong> 🍽️ Ăn uống, 🚗 Di chuyển, 🛒 Mua sắm, 🏠 Nhà ở, 💊 Y tế, 🎓 Giáo dục, 🎬 Giải trí, 💝 Gia đình &amp; Bạn bè, 💳 Tài chính.</li>
-<li><strong>Danh mục thu nhập mặc định:</strong> 💰 Lương, 📈 Đầu tư, 🏢 Kinh doanh, 🎁 Khác.</li>
-<li><strong>Danh mục tùy chỉnh:</strong> Người dùng có thể tạo danh mục riêng với tên, loại, danh mục cha, icon (200+ emoji), và màu sắc.</li>
-</ul>
-<h4 id="46-quản-lý-ngân-sách-budget">4.6. Quản lý Ngân sách (Budget)</h4>
-<ul>
-<li><strong>Tạo ngân sách:</strong> Chọn danh mục chi tiêu, đặt hạn mức, chọn kỳ (Hàng tháng / Hàng tuần / Tùy chỉnh), Bật/Tắt trạng thái.</li>
-<li><strong>Theo dõi tiến độ:</strong> Thanh tiến trình với mã màu (&lt;70% xanh, 70-90% vàng, 90-100% cam, &gt;100% đỏ).</li>
-<li><strong>Hệ thống cảnh báo AWS Lambda + SES:</strong> Lambda function được trigger bởi EventBridge mỗi giờ → Truy vấn ngân sách đang active có mức sử dụng ≥80% → Gửi email HTML qua SES → Ghi log vào bảng <code>budget_alerts</code> để tránh trùng lặp. Cũng kiểm tra và gửi cảnh báo 100% (vượt ngân sách).</li>
-</ul>
-<h4 id="47-báo-cáo-thống-kê-và-xuất-file">4.7. Báo cáo Thống kê và Xuất file</h4>
-<ul>
-<li><strong>Báo cáo tổng hợp:</strong> Biểu đồ đường xu hướng thu/chi hàng ngày, bảng tóm tắt, phân tích theo danh mục, so sánh với kỳ trước.</li>
-<li><strong>Xuất PDF:</strong> Tạo bằng <code>pdfkit</code> trên NestJS, bao gồm header người dùng, biểu đồ SVG, danh sách giao dịch.</li>
-<li><strong>Xuất Excel:</strong> Tạo bằng <code>exceljs</code> với nhiều sheet (Tóm tắt, Giao dịch đầy đủ, Thống kê theo danh mục).</li>
-<li>File upload lên S3 với presigned URL (hiệu lực 1 giờ), lưu vào bảng <code>report_exports</code>.</li>
-</ul>
-<h4 id="48-cài-đặt-hồ-sơ-cá-nhân">4.8. Cài đặt hồ sơ cá nhân</h4>
-<ul>
-<li>Thông tin cá nhân, upload ảnh đại diện (lên S3), đơn vị tiền tệ mặc định, múi giờ, đổi mật khẩu, bật/tắt nhận email cảnh báo ngân sách.</li>
-</ul>
-<h3 id="5-triển-khai-hệ-thống-lên-aws-production">5. Triển khai hệ thống lên AWS Production</h3>
-<h4 id="51-frontend--aws-amplify--cloudfront">5.1. Frontend – AWS Amplify + CloudFront</h4>
-<ul>
-<li>Next.js 14 deploy lên AWS Amplify, tự động detect và build khi push code lên branch <code>main</code>.</li>
-<li>CloudFront CDN phân phối nội dung toàn cầu từ các edge location gần người dùng nhất.</li>
-<li>Biến môi trường cấu hình trực tiếp trong Amplify Console (Cognito Pool ID, API endpoint).</li>
-</ul>
-<h4 id="52-backend--aws-ecs-fargate">5.2. Backend – AWS ECS Fargate</h4>
-<ul>
-<li>Dockerfile multi-stage để tối ưu kích thước image.</li>
-<li>Docker image push lên ECR với tag theo git SHA.</li>
-<li>ECS Task Definition: 0.5 vCPU, 1GB RAM, env vars từ Secrets Manager.</li>
-<li>Auto-scaling dựa trên CPU utilization (scale-out &gt;70%, scale-in &lt;30%).</li>
-<li>Rolling deployment đảm bảo zero-downtime.</li>
-</ul>
-<h4 id="53-database--amazon-rds-postgresql">5.3. Database – Amazon RDS PostgreSQL</h4>
-<ul>
-<li>db.t3.micro cho dev, db.t3.small cho production.</li>
-<li>20GB SSD với Storage Autoscaling.</li>
-<li>Multi-AZ Deployment với tự động failover (&lt;60 giây).</li>
-<li>Backup tự động hàng ngày lúc 3h sáng, lưu 7 ngày, hỗ trợ Point-in-Time Recovery (PITR).</li>
-<li>Đặt trong private subnet, mã hóa storage với AWS KMS.</li>
-</ul>
-<h4 id="54-caching--amazon-elasticache-redis">5.4. Caching – Amazon ElastiCache Redis</h4>
-<ul>
-<li>Redis 7 single node (cache.t3.micro) trong private subnet.</li>
-<li>Cache key strategy: <code>user:{userId}:dashboard:stats:{period}</code> với TTL 10 phút.</li>
-<li>Tự động invalidate khi có thay đổi giao dịch.</li>
-</ul>
-<h3 id="6-cicd-pipeline-với-aws-codepipeline">6. CI/CD Pipeline với AWS CodePipeline</h3>
-<p>Pipeline gồm 4 stages chính:</p>
-<ol>
-<li><strong>Source:</strong> Kết nối GitHub, tự động trigger khi push code vào <code>main</code>.</li>
-<li><strong>Build (CodeBuild):</strong> Chạy unit test (<code>jest --coverage</code>), build Docker image, tag &amp; push lên ECR.</li>
-<li><strong>Deploy to Staging:</strong> Tự động deploy lên ECS staging, chạy smoke test.</li>
-<li><strong>Deploy to Production:</strong> Chờ phê duyệt thủ công, sau đó deploy lên ECS production.</li>
-</ol>
-<h3 id="7-monitoring-với-amazon-cloudwatch">7. Monitoring với Amazon CloudWatch</h3>
-<h4 id="cloudwatch-dashboard-metrics">CloudWatch Dashboard Metrics:</h4>
-<ul>
-<li><strong>ECS:</strong> CPUUtilization, MemoryUtilization, số task đang chạy.</li>
-<li><strong>ALB:</strong> RequestCount, TargetResponseTime, HTTPCode_Target_5XX_Count.</li>
-<li><strong>RDS:</strong> DatabaseConnections, CPUUtilization, FreeStorageSpace.</li>
-<li><strong>Lambda:</strong> Invocations, Duration, Errors.</li>
-<li><strong>ElastiCache:</strong> CacheHits, CacheMisses, CurrConnections.</li>
-</ul>
-<h4 id="cloudwatch-alarms">CloudWatch Alarms:</h4>
-<ul>
-<li>ECS CPU &gt; 80% trong 5 phút → Gửi SNS email thông báo.</li>
-<li>RDS Connections &gt; 80 → Cảnh báo connection pool gần đầy.</li>
-<li>ALB HTTP 5xx &gt; 10 errors/phút → Cảnh báo lỗi nghiêm trọng backend.</li>
-<li>Lambda Error Rate &gt; 5% → Cảnh báo budget checker gặp vấn đề.</li>
-</ul>
-<h3 id="8-đánh-giá-hiệu-suất-hệ-thống">8. Đánh giá hiệu suất hệ thống</h3>
-<table>
-  <thead>
-      <tr>
-          <th style="text-align: left">Chỉ số</th>
-          <th style="text-align: left">Kết quả đo được</th>
-          <th style="text-align: left">Mục tiêu</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td style="text-align: left">API Response Time (p50)</td>
-          <td style="text-align: left">45ms</td>
-          <td style="text-align: left">&lt; 200ms ✅</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">API Response Time (p95)</td>
-          <td style="text-align: left">120ms</td>
-          <td style="text-align: left">&lt; 500ms ✅</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">API Response Time (p99)</td>
-          <td style="text-align: left">280ms</td>
-          <td style="text-align: left">&lt; 1000ms ✅</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Dashboard load time (có cache)</td>
-          <td style="text-align: left">180ms</td>
-          <td style="text-align: left">&lt; 300ms ✅</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Dashboard load time (cold)</td>
-          <td style="text-align: left">650ms</td>
-          <td style="text-align: left">&lt; 1000ms ✅</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Unit Test Coverage</td>
-          <td style="text-align: left">78.3%</td>
-          <td style="text-align: left">&gt; 75% ✅</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Integration Tests Pass Rate</td>
-          <td style="text-align: left">100%</td>
-          <td style="text-align: left">100% ✅</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">RDS Max Connections (đồng thời)</td>
-          <td style="text-align: left">32/100</td>
-          <td style="text-align: left">&lt; 80 ✅</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">ECS CPU Utilization (tải bình thường)</td>
-          <td style="text-align: left">18%</td>
-          <td style="text-align: left">&lt; 70% ✅</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">ElastiCache Hit Rate</td>
-          <td style="text-align: left">87.4%</td>
-          <td style="text-align: left">&gt; 80% ✅</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">S3 Upload Success Rate</td>
-          <td style="text-align: left">99.98%</td>
-          <td style="text-align: left">&gt; 99.9% ✅</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">Lambda Execution Duration (trung bình)</td>
-          <td style="text-align: left">1.2s</td>
-          <td style="text-align: left">&lt; 3s ✅</td>
-      </tr>
-  </tbody>
-</table>
 
 
 
@@ -1156,19 +1055,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1777476847"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1777476847"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1777476847"></script>
-    <script src="../../js/jquery.sticky.js?1777476847"></script>
-    <script src="../../js/featherlight.min.js?1777476847"></script>
-    <script src="../../js/highlight.pack.js?1777476847"></script>
+    <script src="../../js/clipboard.min.js?1777618044"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1777618044"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1777618044"></script>
+    <script src="../../js/jquery.sticky.js?1777618044"></script>
+    <script src="../../js/featherlight.min.js?1777618044"></script>
+    <script src="../../js/highlight.pack.js?1777618044"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1777476847"></script>
-    <script src="../../js/learn.js?1777476847"></script>
-    <script src="../../js/hugo-learn.js?1777476847"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1777618044"></script>
+    <script src="../../js/learn.js?1777618044"></script>
+    <script src="../../js/hugo-learn.js?1777618044"></script>
 
-    <link href="../../mermaid/mermaid.css?1777476847" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1777476847"></script>
+    <link href="../../mermaid/mermaid.css?1777618044" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1777618044"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -6,14 +6,6 @@ chapter: false
 pre: " <b> 1. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
-
-**On this page**, you will need to introduce your worklog. **How** did you complete it? How many weeks did you take to complete the program? **What** did you do in those weeks?
-
-I completed the AWS Cloud Journey program over **10 weeks** (from September 29, 2025 to December 7, 2025), going through a learning process from basics to advanced AWS services and implementing a real-world project. Below is an overview of the completed weeks:
-
 **Week 1 (09/03 - 13/03):** [Introduction to AWS and Core Services](1.1-week1/)
 
 - Explored AWS Cloud fundamentals across key service categories: Compute, Storage, Networking, and Database
