@@ -6,7 +6,7 @@ chapter: false
 pre: " <b> 3. </b> "
 ---
 
-### [Event 1](4.1-Event1/)
+### Event 1
 
 &emsp;**Event Name:** FCAJ Community Day
 

@@ -27,7 +27,7 @@ chapter: false
 
 &emsp; **Thời gian thực tập:** Từ ngày 09/03/2026 đến ngày 02/05/2026
 
-<img src="/images/my_image.jpg" alt="Your profile picture" width="250" />
+<img src="/images/avatar.jpg" alt="Your profile picture" width="250" />
 ### Nội dung báo cáo
 
 1.  [Worklog](1-Worklog/)
