@@ -18,4 +18,4 @@ pre: " <b> 3. </b> "
 
 &emsp;**Brief Description:** This workshop focuses on building and operating modern cloud-based systems, with an emphasis on Platform Engineering, DevOps, and Generative AI applications on Amazon Web Services. The agenda covers an introduction to Platform Engineering and its role in cloud ecosystems, DevOps practices for GenAI applications (GenAIOps), and real-world examples leveraging Amazon EKS, AWS Bedrock, and observability tools. It also provides a deep dive into software delivery in the “agentic era,” focusing on developer productivity and modern deployment workflows.
 
-<img src="/images/4-EventParticipated/event_image.jpg" alt="Your event picture" width="950" />
+<img src="/images/3-EventParticipated/event_image.jpg" alt="Your event picture" width="950" />
