@@ -1,6 +1,6 @@
 ---
 title : "Cơ sở dữ liệu"
-date: 2026-03-10
+date : 2024-01-01
 weight : 4
 chapter : false
 pre : " <b> 4.2.4 </b> "
@@ -47,10 +47,10 @@ Các bảng trong hệ thống:
 | **users** | Người dùng ứng dụng; liên kết **Cognito** (cognito_sub), email duy nhất. |
 | **wallets** | Ví theo người dùng; số dư và **tiền tệ** (mặc định VND). |
 | **categories** | Danh mục thu/chi/chuyển theo user; dùng cho giao dịch và ngân sách. |
-| **transactions** | Giao dịch (thu/chi/chuyển), số tiền, ví nguồn/đích, danh mục, thời điểm. |
+| **transactions** | Giao dịch (thu/chi/chuyển), số tiền, ví nguồn/đích, danh mục, **date**; **note** tùy chọn. |
 | **budgets** | Ngân sách theo **tháng/năm** và user (theo danh mục hoặc tổng). |
 | **tags** | Nhãn do user định nghĩa; gắn nhiều-nhiều với giao dịch. |
 | **transaction_tags** | Bảng nối **giao dịch ↔ tag**. |
-| **goals** | Mục tiêu tiết kiệm (target, deadline, tiến độ). |
-| **recurring_transactions** | Giao dịch **định kỳ** (chu kỳ, ví, danh mục, ngày chạy tiếp theo). |
-| **notifications** | Thông báo trong app (loại, nội dung, đã đọc). |
+| **goals** | Mục tiêu tiết kiệm (tên, mô tả tùy chọn, **target** / **current**, deadline; cờ **notification_sent**). |
+| **recurring_transactions** | Giao dịch **định kỳ** (**interval**: ngày/tuần/tháng/năm), ví, danh mục tùy chọn, **next_date**, **is_active**. |
+| **notifications** | Thông báo (**type**: budget alert / đạt goal / reminder), **message**, **is_read**. |

@@ -1,6 +1,6 @@
 ---
 title: "Deploy backend"
-date: 2026-03-10
+date: 2024-01-01
 weight: 3
 chapter: false
 pre: " <b> 4.3.3 </b> "
@@ -8,7 +8,7 @@ pre: " <b> 4.3.3 </b> "
 
 ## 4.3.3 Deploy backend
 
-The backend runtime on AWS is **ECS Fargate** pulling an image from **ECR**. In SpendWiseApp/infrastructure/environments/dev/main.tf this maps to **module "ecr"** and **module "ecs"**. **module "alb"** must exist before the service can register healthy targets — it is declared earlier in the same file and is described under [4.3.5 Platform, edge & operations](../4.3.5-platform-edge-ops/) (ALB + listener + target group).
+The backend runtime on AWS is **ECS Fargate** pulling an image from **ECR**. In SpendWiseApp/infrastructure/environments/dev/main.tf this maps to **module "ecr"** and **module "ecs"**. **module "alb"** must exist before the service can register healthy targets; it is declared **before** **module "ecs"** in the same **main.tf**. For listener and target group details, open **modules/alb** in your clone.
 
 ### Code — ECR repository (modules/ecr/main.tf)
 
@@ -140,5 +140,121 @@ After Terraform creates the repo, your pipeline or laptop runs docker build / do
 Environment variables injected in main.tf locals include **DATABASE_URL** when RDS exists, plus **COGNITO_*** from module.cognito so the API can validate JWTs without hard-coding pool IDs in Terraform files.
 
 **Note:** module "ecs" has depends_on = [module.alb] so listeners exist before service creation.
+
+### After terraform apply — push image and roll ECS
+
+After **terraform apply**, ECR, ECS, the ALB, and the task definition already exist; the task definition points at the image tag in **ecs_backend_image_tag** (**terraform.tfvars**). For each backend code change, run **two steps**:
+
+1. **Docker push** — Build the NestJS image from the repo Dockerfile, **tag** it to match **ecs_backend_image_tag**, log in to ECR, and **docker push** to **ecr_repository_url** (Terraform output).
+2. **Roll ECS** — **aws ecs update-service … --force-new-deployment** so new tasks pull the pushed image; wait until the service is **stable** and tasks are healthy behind the ALB.
+
+**Step 1 — ECR login, build, push** (example: shell in the parent directory of **SpendWiseApp**; if your cwd is inside SpendWiseApp, adjust **TF_DIR** and **docker build** paths):
+
+```bash
+export TF_DIR=SpendWiseApp/infrastructure/environments/dev
+export AWS_REGION="$(terraform -chdir=$TF_DIR output -raw aws_region)"
+export ECR_REPO="$(terraform -chdir=$TF_DIR output -raw ecr_repository_url)"
+export ECR_REGISTRY="${ECR_REPO%%/*}"
+export IMAGE_TAG=latest   # must match ecs_backend_image_tag in Terraform
+
+aws ecr get-login-password --region "$AWS_REGION" \
+  | docker login --username AWS --password-stdin "$ECR_REGISTRY"
+
+docker build -f SpendWiseApp/backend/Dockerfile -t spendwise-backend:"$IMAGE_TAG" SpendWiseApp/backend
+docker tag spendwise-backend:"$IMAGE_TAG" "${ECR_REPO}:${IMAGE_TAG}"
+docker push "${ECR_REPO}:${IMAGE_TAG}"
+```
+
+**Step 2 — ECS new deployment** (after a successful **docker push**):
+
+```bash
+export ECS_CLUSTER="$(terraform -chdir=$TF_DIR output -raw ecs_cluster_name)"
+export ECS_SERVICE="$(terraform -chdir=$TF_DIR output -raw ecs_service_name)"
+
+aws ecs update-service \
+  --region "$AWS_REGION" \
+  --cluster "$ECS_CLUSTER" \
+  --service "$ECS_SERVICE" \
+  --force-new-deployment
+
+aws ecs wait services-stable \
+  --region "$AWS_REGION" \
+  --cluster "$ECS_CLUSTER" \
+  --services "$ECS_SERVICE"
+```
+
+### Database migrations (Prisma)
+
+After the backend **ECS service** is **running stably**, run the **bash** block below to apply **migrations** (Prisma). Use the **SpendWiseApp repo root** (with **infrastructure/environments/dev**); if your cwd is the parent directory, **cd SpendWiseApp** first.
+
+```bash
+export TF_DIR="infrastructure/environments/dev"
+export TFVARS="$TF_DIR/terraform.tfvars"
+
+REGION=$(
+  grep -E '^[[:space:]]*aws_region[[:space:]]*=' "$TFVARS" \
+    | head -1 \
+    | sed -E 's/.*"([^"]+)".*/\1/'
+)
+ASSIGN_PUBLIC=DISABLED
+grep -E \
+  '^[[:space:]]*ecs_assign_public_ip[[:space:]]*=[[:space:]]*true' \
+  "$TFVARS" >/dev/null 2>&1 \
+  && ASSIGN_PUBLIC=ENABLED
+
+export REGION ASSIGN_PUBLIC
+export CLUSTER=$(
+  terraform -chdir="$TF_DIR" output -raw ecs_cluster_name
+)
+export TASK_FAMILY=$(
+  terraform -chdir="$TF_DIR" output -raw ecs_task_definition_family
+)
+export SUBNETS=$(
+  terraform -chdir="$TF_DIR" output -raw ecs_private_app_subnet_ids_csv
+)
+export ECS_SG=$(
+  terraform -chdir="$TF_DIR" output -raw ecs_tasks_security_group_id
+)
+
+NETCFG='awsvpcConfiguration={subnets=['
+NETCFG+="${SUBNETS}"
+NETCFG+=']'
+NETCFG+=',securityGroups=['
+NETCFG+="${ECS_SG}"
+NETCFG+=']'
+NETCFG+=',assignPublicIp='
+NETCFG+="${ASSIGN_PUBLIC}"
+NETCFG+='}'
+
+OVERRIDES='{"containerOverrides":['
+OVERRIDES+='{"name":"backend","command":["npx","prisma","migrate","deploy"]}'
+OVERRIDES+=']}'
+
+export TASK_ARN=$(
+  aws ecs run-task \
+    --region "$REGION" \
+    --cluster "$CLUSTER" \
+    --launch-type FARGATE \
+    --task-definition "$TASK_FAMILY" \
+    --network-configuration "$NETCFG" \
+    --overrides "$OVERRIDES" \
+    --query 'tasks[0].taskArn' \
+    --output text
+)
+
+aws ecs wait tasks-stopped \
+  --region "$REGION" \
+  --cluster "$CLUSTER" \
+  --tasks "$TASK_ARN"
+
+aws ecs describe-tasks \
+  --region "$REGION" \
+  --cluster "$CLUSTER" \
+  --tasks "$TASK_ARN" \
+  --query 'tasks[0].containers[0].exitCode' \
+  --output text
+```
+
+**describe-tasks** prints **exitCode**: **0** means success; non-zero means failure — check ECS logs (CloudWatch **ecs_log_group** output). **prisma migrate deploy** applies only files already in **prisma/migrations**.
 
 Design reference: [4.2.3 Backend and runtime platform](../4.2-aws-infrastructure-security/4.2.3-backend-platform/).

@@ -1,6 +1,6 @@
 ---
 title : "Database"
-date: 2026-03-10
+date : 2024-01-01
 weight : 4
 chapter : false
 pre : " <b> 4.2.4 </b> "
@@ -47,10 +47,10 @@ Physical table names follow **Prisma** mappings in `SpendWiseApp/backend/prisma/
 | **users** | Application users; **Cognito** link (cognito_sub), unique email. |
 | **wallets** | Per-user wallets; balance and **currency** (default VND). |
 | **categories** | Income / expense / transfer categories per user; used by transactions and budgets. |
-| **transactions** | Money movements (income/expense/transfer), amount, source/target wallets, category, timestamp. |
+| **transactions** | Money movements (income/expense/transfer), amount, source/target wallets, category, **date**; optional **note**. |
 | **budgets** | Monthly/yearly budgets per user (per category or overall). |
 | **tags** | User-defined labels; many-to-many with transactions. |
 | **transaction_tags** | Join table **transactions ↔ tags**. |
-| **goals** | Savings goals (target, deadline, progress). |
-| **recurring_transactions** | **Recurring** entries (cadence, wallet, category, next run date). |
-| **notifications** | In-app notifications (type, message, read flag). |
+| **goals** | Savings goals (name, optional description, **target** / **current**, deadline; **notification_sent** flag). |
+| **recurring_transactions** | **Recurring** entries (**interval** DAILY/WEEKLY/MONTHLY/YEARLY, wallet, optional category, **next_date**, **is_active**). |
+| **notifications** | In-app notifications (**NotificationType**, **message**, **is_read**). |

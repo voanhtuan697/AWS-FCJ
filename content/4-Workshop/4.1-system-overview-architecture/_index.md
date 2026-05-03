@@ -1,6 +1,6 @@
 ---
 title : "System overview and architecture"
-date: 2026-03-10
+date : 2024-01-01
 weight : 1
 chapter : false
 pre : " <b> 4.1. </b> "

@@ -28,8 +28,21 @@
                 href="http://localhost:1313/aws-fcj-report/vi/1-worklog/"
                 />
   </url><url>
+    <loc>http://localhost:1313/aws-fcj-report/vi/4-workshop/4.3-deployment-operations-monitoring/4.3.1-run-infrastructure-terraform/</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/aws-fcj-report/4-workshop/4.3-deployment-operations-monitoring/4.3.1-run-infrastructure-terraform/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="http://localhost:1313/aws-fcj-report/vi/4-workshop/4.3-deployment-operations-monitoring/4.3.1-run-infrastructure-terraform/"
+                />
+  </url><url>
     <loc>http://localhost:1313/aws-fcj-report/vi/4-workshop/4.1-system-overview-architecture/</loc>
-    <lastmod>2026-03-10T00:00:00+00:00</lastmod>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -41,21 +54,8 @@
                 href="http://localhost:1313/aws-fcj-report/vi/4-workshop/4.1-system-overview-architecture/"
                 />
   </url><url>
-    <loc>http://localhost:1313/aws-fcj-report/vi/4-workshop/4.3-deployment-operations-monitoring/4.3.1-vpc-network/</loc>
-    <lastmod>2026-03-10T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/aws-fcj-report/4-workshop/4.3-deployment-operations-monitoring/4.3.1-vpc-network/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="http://localhost:1313/aws-fcj-report/vi/4-workshop/4.3-deployment-operations-monitoring/4.3.1-vpc-network/"
-                />
-  </url><url>
     <loc>http://localhost:1313/aws-fcj-report/vi/4-workshop/4.2-aws-infrastructure-security/4.2.1-vpc-network/</loc>
-    <lastmod>2026-03-10T00:00:00+00:00</lastmod>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -93,7 +93,7 @@
                 />
   </url><url>
     <loc>http://localhost:1313/aws-fcj-report/vi/4-workshop/4.2-aws-infrastructure-security/4.2.2-client-facing/</loc>
-    <lastmod>2026-03-10T00:00:00+00:00</lastmod>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -105,17 +105,17 @@
                 href="http://localhost:1313/aws-fcj-report/vi/4-workshop/4.2-aws-infrastructure-security/4.2.2-client-facing/"
                 />
   </url><url>
-    <loc>http://localhost:1313/aws-fcj-report/vi/4-workshop/4.3-deployment-operations-monitoring/4.3.2-frontend-hosting-auth/</loc>
-    <lastmod>2026-03-10T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/aws-fcj-report/vi/4-workshop/4.3-deployment-operations-monitoring/4.3.2-frontend-hosting/</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="http://localhost:1313/aws-fcj-report/4-workshop/4.3-deployment-operations-monitoring/4.3.2-frontend-hosting-auth/"
+                href="http://localhost:1313/aws-fcj-report/4-workshop/4.3-deployment-operations-monitoring/4.3.2-frontend-hosting/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="http://localhost:1313/aws-fcj-report/vi/4-workshop/4.3-deployment-operations-monitoring/4.3.2-frontend-hosting-auth/"
+                href="http://localhost:1313/aws-fcj-report/vi/4-workshop/4.3-deployment-operations-monitoring/4.3.2-frontend-hosting/"
                 />
   </url><url>
     <loc>http://localhost:1313/aws-fcj-report/vi/4-workshop/4.2-aws-infrastructure-security/</loc>
@@ -143,8 +143,21 @@
                 href="http://localhost:1313/aws-fcj-report/vi/1-worklog/1.2-week2/"
                 />
   </url><url>
+    <loc>http://localhost:1313/aws-fcj-report/vi/3-eventparticipated/</loc>
+    <lastmod>2025-11-13T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/aws-fcj-report/3-eventparticipated/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="http://localhost:1313/aws-fcj-report/vi/3-eventparticipated/"
+                />
+  </url><url>
     <loc>http://localhost:1313/aws-fcj-report/vi/4-workshop/4.2-aws-infrastructure-security/4.2.3-backend-platform/</loc>
-    <lastmod>2026-03-10T00:00:00+00:00</lastmod>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -157,7 +170,7 @@
                 />
   </url><url>
     <loc>http://localhost:1313/aws-fcj-report/vi/4-workshop/4.3-deployment-operations-monitoring/4.3.3-backend/</loc>
-    <lastmod>2026-03-10T00:00:00+00:00</lastmod>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -167,19 +180,6 @@
                 rel="alternate"
                 hreflang="vi"
                 href="http://localhost:1313/aws-fcj-report/vi/4-workshop/4.3-deployment-operations-monitoring/4.3.3-backend/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/aws-fcj-report/vi/3-eventparticipated/</loc>
-    <lastmod>2025-11-13T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/aws-fcj-report/3-eventparticipated/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="http://localhost:1313/aws-fcj-report/vi/3-eventparticipated/"
                 />
   </url><url>
     <loc>http://localhost:1313/aws-fcj-report/vi/4-workshop/4.3-deployment-operations-monitoring/</loc>
@@ -208,7 +208,7 @@
                 />
   </url><url>
     <loc>http://localhost:1313/aws-fcj-report/vi/4-workshop/4.2-aws-infrastructure-security/4.2.4-database/</loc>
-    <lastmod>2026-03-10T00:00:00+00:00</lastmod>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -220,34 +220,8 @@
                 href="http://localhost:1313/aws-fcj-report/vi/4-workshop/4.2-aws-infrastructure-security/4.2.4-database/"
                 />
   </url><url>
-    <loc>http://localhost:1313/aws-fcj-report/vi/4-workshop/4.3-deployment-operations-monitoring/4.3.4-database/</loc>
-    <lastmod>2026-03-10T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/aws-fcj-report/4-workshop/4.3-deployment-operations-monitoring/4.3.4-database/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="http://localhost:1313/aws-fcj-report/vi/4-workshop/4.3-deployment-operations-monitoring/4.3.4-database/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/aws-fcj-report/vi/4-workshop/4.4-build-deploy-fe-be/</loc>
-    <lastmod>2026-03-10T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/aws-fcj-report/4-workshop/4.4-build-deploy-fe-be/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="http://localhost:1313/aws-fcj-report/vi/4-workshop/4.4-build-deploy-fe-be/"
-                />
-  </url><url>
     <loc>http://localhost:1313/aws-fcj-report/vi/4-workshop/</loc>
-    <lastmod>2026-03-10T00:00:00+00:00</lastmod>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -271,32 +245,6 @@
                 href="http://localhost:1313/aws-fcj-report/vi/1-worklog/1.4-week4/"
                 />
   </url><url>
-    <loc>http://localhost:1313/aws-fcj-report/vi/4-workshop/4.5-cost-risk-expansion-roadmap/</loc>
-    <lastmod>2026-03-10T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/aws-fcj-report/4-workshop/4.5-cost-risk-expansion-roadmap/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="http://localhost:1313/aws-fcj-report/vi/4-workshop/4.5-cost-risk-expansion-roadmap/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/aws-fcj-report/vi/4-workshop/4.3-deployment-operations-monitoring/4.3.5-platform-edge-ops/</loc>
-    <lastmod>2026-03-10T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/aws-fcj-report/4-workshop/4.3-deployment-operations-monitoring/4.3.5-platform-edge-ops/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="http://localhost:1313/aws-fcj-report/vi/4-workshop/4.3-deployment-operations-monitoring/4.3.5-platform-edge-ops/"
-                />
-  </url><url>
     <loc>http://localhost:1313/aws-fcj-report/vi/5-self-evaluation/</loc>
     <lastmod>2026-03-10T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -308,6 +256,19 @@
                 rel="alternate"
                 hreflang="vi"
                 href="http://localhost:1313/aws-fcj-report/vi/5-self-evaluation/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/aws-fcj-report/vi/4-workshop/4.5-cost-risk-expansion-roadmap/</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/aws-fcj-report/4-workshop/4.5-cost-risk-expansion-roadmap/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="http://localhost:1313/aws-fcj-report/vi/4-workshop/4.5-cost-risk-expansion-roadmap/"
                 />
   </url><url>
     <loc>http://localhost:1313/aws-fcj-report/vi/1-worklog/1.5-week5/</loc>
@@ -372,7 +333,7 @@
                 />
   </url><url>
     <loc>http://localhost:1313/aws-fcj-report/vi/4-workshop/4.6-legacy-cleanup/</loc>
-    <lastmod>2026-03-10T00:00:00+00:00</lastmod>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"

@@ -8,20 +8,39 @@ pre: " <b> 4.3. </b> "
 
 ## 4.3 Triển khai Terraform (theo lớp)
 
-Phần này mô tả **triển khai hạ tầng SpendWiseApp bằng Terraform** theo cùng trục với [4.2 Nền tảng hạ tầng AWS và bảo mật](../4.2-aws-infrastructure-security/) — từ VPC và mạng, hosting frontend và xác thực, backend, database, đến các thành phần **nền tảng / biên / vận hành** không gói gọn hết trong ranh giới “chỉ FE” hay “chỉ BE”.
+Chương này là **workshop thực hành trên AWS**: làm việc từ **bản clone Git** của dự án [SpendWise trên GitHub](https://github.com/benguinsan/spendwise), chỉnh cấu hình trên máy, rồi chạy Terraform trong thư mục **infrastructure/** của repo đó. Lý do chọn từng dịch vụ nằm ở [4.2 Nền tảng hạ tầng AWS và bảo mật](../4.2-aws-infrastructure-security/). Ở đây tập trung **thứ tự làm việc** và **mở đúng file trong repo** — không nhét cả khối Terraform dài vào trình duyệt để copy.
 
-### Terraform — vai trò và lý do lựa chọn
+### Luồng workshop
 
-- **Hạ tầng dưới dạng mã (IaC):** Trạng thái mong muốn của VPC, security group, RDS, ECS… được lưu trong cấu hình có phiên bản; có thể review diff, tái tạo môi trường và đồng bộ dev / staging / production, hạn chế lệch cấu hình thủ công.
-- **Module hóa:** Các module Terraform trong kho SpendWiseApp (ví dụ vpc, ecs, rds, amplify, cognito) bám theo **phân lớp kiến trúc** ở mục 4.2, giúp phân ranh giới trách nhiệm và giảm sao chép giữa các môi trường.
-- **Phụ thuộc và thứ tự:** Terraform xử lý thứ tự tạo / hủy tài nguyên và chuyển output giữa các module (ví dụ subnet cho ECS, bí mật cho task) — phù hợp chuỗi **mạng → compute → dữ liệu**.
+1. **Clone repository.** URL chính thức: **https://github.com/benguinsan/spendwise**. Thư mục gốc có **frontend/**, **backend/**, **infrastructure/**.
 
-Lý do chọn từng dịch vụ và cách bảo mật vẫn nằm ở **mục 4.2**. Các trang con dưới đây tập trung **cách gom lệnh triển khai Terraform** trong thực tế.
+```bash
+git clone https://github.com/benguinsan/spendwise.git
+cd spendwise
+```
+
+2. **Cài công cụ trên máy:** **Terraform**, **AWS CLI**, **Git**. Cấu hình **quyền AWS** cho tài khoản lab **aws configure** hoặc biến môi trường.
+
+3. **Mở code trong editor.** Toàn bộ Terraform cho môi trường mẫu nằm trong **infrastructure/** kể từ gốc repo. Root module dev là **environments/dev/main.tf**; phần tái sử dụng nằm trong **modules/**.
+
+4. **Chuẩn bị biến.** Trong **infrastructure/environments/dev**, sao chép **terraform.tfvars.example** thành **terraform.tfvars** và điền giá trị. Token và secret không commit.
+
+5. **Triển khai theo lớp** theo các mục dưới. Chạy **terraform init**, **plan**, **apply** trong **environments/dev** khi giảng viên xác nhận phụ thuộc đã đủ. Thực tế thường **một lần apply** cho cả stack; các mục numbered giải thích **module nào đang đóng vai trò gì**.
+
+**Cách dùng trang này:** Coi như **checklist và sơ đồ đường đi**. Mở đúng đường dẫn trong bản clone — **không** copy từng trang Terraform từ web workshop.
+
+### Vì sao dùng Terraform
+
+- **Hạ tầng dưới dạng mã:** VPC, security group, RDS, ECS… nằm trong file có phiên bản.
+- **Module:** **modules/vpc**, **modules/ecs**, **modules/rds**, **modules/amplify**, **modules/cognito**, … khớp phân lớp ở mục 4.2.
+- **Thứ tự:** Terraform xử lý phụ thuộc để **mạng → compute → dữ liệu** nhất quán.
+
+### Cấu trúc thư mục (infrastructure)
+
+![Cây thư mục SpendWiseApp/infrastructure: docs, environments, modules (alb, amplify, bastion, cloudfront_alb, cognito, db_password_secret, ecr, ecs, monitoring, rds, security_groups, vpc, waf_alb), scripts](/images/4-Workshop/4.3-spendwise-infrastructure-folder-tree.png)
 
 ### Nội dung
 
-1. [4.3.1 Triển khai VPC và mạng](4.3.1-vpc-network/)
-2. [4.3.2 Triển khai hosting frontend và xác thực người dùng](4.3.2-frontend-hosting-auth/)
+1. [4.3.1 Chạy hạ tầng với Terraform](4.3.1-run-infrastructure-terraform/)
+2. [4.3.2 Hosting frontend](4.3.2-frontend-hosting/)
 3. [4.3.3 Triển khai backend](4.3.3-backend/)
-4. [4.3.4 Triển khai database](4.3.4-database/)
-5. [4.3.5 Nền tảng, biên và vận hành](4.3.5-platform-edge-ops/) — ALB, WAF, Route 53, Bastion, giám sát (dùng chung nhiều lớp; không thuộc hẳn một phía FE hay BE).

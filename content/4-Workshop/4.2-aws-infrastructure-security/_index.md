@@ -16,7 +16,7 @@ pre : " <b> 4.2. </b> "
 
 Implementation detail is split **by technical layer** (VPC → Frontend Hosting and user authentication → backend runtime → database), aligned with those modules:
 
-1. [4.2.1 VPC and networking](4.2.1-vpc-network/) — `vpc`, VPC endpoints, `security_groups`.
-2. [4.2.2 Frontend Hosting and user authentication](4.2.2-client-facing/) — `amplify`, `cognito`.
-3. [4.2.3 Backend and runtime platform](4.2.3-backend-platform/) — `alb`, `waf_alb`, `route53_api`, `ecr`, `ecs`, `monitoring`.
-4. [4.2.4 Database](4.2.4-database/) — `rds`, `db_password_secret`, `bastion`.
+1. [4.2.1 VPC and networking](4.2.1-vpc-network/).
+2. [4.2.2 Frontend Hosting and user authentication](4.2.2-client-facing/) 
+3. [4.2.3 Backend and runtime platform](4.2.3-backend-platform/)
+4. [4.2.4 Database](4.2.4-database/).
