@@ -10,7 +10,7 @@ pre: " <b> 1.1. </b> "
 - Tiếp cận và làm quen với nền tảng AWS Cloud.
 - Khám phá các nhóm dịch vụ chủ chốt: Compute, Storage, Networking, Database.
 - Thực hành trên AWS Free Tier, Console và CLI.
-- Xây dựng kiến thức và kỹ năng thao tác cơ bản với Amazon EC2
+- Xây dựng kiến thức và kỹ năng thao tác cơ bản với Amazon EC2.
 
 
 **Thời gian:** 09/03/2026 - 13/03/2026
