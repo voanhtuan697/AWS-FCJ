@@ -18,4 +18,4 @@ pre: " <b> 3. </b> "
 
 &emsp;**Mô tả ngắn gọn:** Workshop này tập trung vào việc xây dựng và vận hành các hệ thống hiện đại trên nền tảng cloud, với trọng tâm là Platform Engineering, DevOps và các ứng dụng Generative AI trên Amazon Web Services. Nội dung chương trình bao gồm giới thiệu về vai trò của Platform Engineering trong hệ sinh thái cloud, các phương pháp triển khai DevOps cho ứng dụng GenAI (GenAIOps) cùng các ví dụ thực tế sử dụng Amazon EKS, AWS Bedrock và các công cụ quan sát hệ thống. Workshop cũng đi sâu vào cách phát triển và triển khai phần mềm trong “kỷ nguyên agentic”, tối ưu hóa năng suất lập trình và quy trình vận hành.
 
-![overview](/images/4-EventParticipated/event_image.jpg)
+<img src="/images/4-EventParticipated/event_image.jpg" alt="Your event picture" width="950" />
