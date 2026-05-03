@@ -10,7 +10,7 @@ pre: " <b> 1.1. </b> "
 - Get acquainted with the AWS Cloud platform.
 - Explore key service groups: Compute, Storage, Networking, and Database.
 - Practice on AWS Free Tier, Console, and CLI.
-- Build fundamental knowledge and skills in manipulating Amazon EC2.
+- Build fundamental knowledge and skills in manipulating Amazon EC2
 
 **Time Period:** 09/03/2026 - 13/03/2026
 
