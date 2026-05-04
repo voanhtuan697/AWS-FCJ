@@ -8,7 +8,7 @@ pre: " <b> 1.8. </b> "
 ### Mục tiêu Tuần 8
 
 - Nâng cao kiến thức về **Solutions Architecture** trên AWS.
-- Tối ưu và hoàn thiện kiến trúc hệ thống PEM.
+- Tối ưu và hoàn thiện kiến trúc hệ thống SpendWiseApp.
 - Nghiên cứu **AWS Best Practices** và **Well-Architected Framework**.
 
 
@@ -58,7 +58,7 @@ pre: " <b> 1.8. </b> "
 
 - Tổng kết tuần 8:
 
-  - Hoàn thiện kiến trúc hệ thống PEM ở mức production-ready 
+  - Hoàn thiện kiến trúc hệ thống SpendWiseApp ở mức production-ready 
   - Kết hợp lý thuyết + thực hành AWS 
   - Sẵn sàng cho giai đoạn: 
     - Automation (IaC) 

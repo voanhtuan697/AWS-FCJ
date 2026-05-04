@@ -53,7 +53,7 @@ pre: " <b> 1. </b> "
 
 **Week 8 (27/04 - 01/05):** [Advanced System Architecture and AWS Optimization for Expense Management Application](1.8-week8/)
 
-- Designing a production-ready system architecture for PEM
+- Designing a production-ready system architecture for SpendWiseApp
 - Integrating S3 (uploading invoices, saving reports)
 - Integrating Redis (ElastiCache) to cache dashboard data
 - Optimizing the database and business process flow (transactions, budgets)

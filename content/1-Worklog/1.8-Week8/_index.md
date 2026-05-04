@@ -8,7 +8,7 @@ pre: " <b> 1.8. </b> "
 ### Week 8 Goals
 
 - Enhance knowledge of **Solutions Architecture** on AWS.
-- Optimize and refine the PEM system architecture.
+- Optimize and refine the SpendWiseApp system architecture.
 - Study **AWS Best Practices** and **Well-Architected Framework**.
 
 **Time Period:** 27/04/2026 - 01/05/2026
@@ -54,7 +54,7 @@ pre: " <b> 1.8. </b> "
 
 - Week 8 Summary:
 
-  - Completing the production-ready PEM system architecture
+  - Completing the production-ready SpendWiseApp system architecture
   - Combining AWS theory and practice
   - Preparing for the next phase:
     - Automation (IaC)

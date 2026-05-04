@@ -53,7 +53,7 @@ pre: " <b> 1. </b> "
 
 **Tuần 8 (27/04 - 01/05):** [Kiến trúc hệ thống nâng cao và tối ưu AWS cho ứng dụng quản lý chi tiêu](1.8-week8/)
 
-- Thiết kế kiến trúc hệ thống production-ready cho PEM
+- Thiết kế kiến trúc hệ thống production-ready cho SpendWiseApp
 - Tích hợp S3 (upload hóa đơn, lưu báo cáo)
 - Tích hợp Redis (ElastiCache) để cache dữ liệu dashboard
 - Tối ưu database và luồng xử lý nghiệp vụ (transactions, budgets)
