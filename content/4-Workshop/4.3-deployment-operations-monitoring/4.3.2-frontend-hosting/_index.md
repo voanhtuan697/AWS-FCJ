@@ -14,11 +14,11 @@ aliases:
 
 After a successful **terraform apply**, open **AWS Amplify** in the **Region** you deployed to (e.g. **US East (N. Virginia)**, region code **us-east-1**). The **All apps** page lists the app Terraform created; the UI may look like this:
 
-![All apps — Amplify after a successful apply](/images/4-workshop/amplify-console-after-terraform-apply.png)
+![All apps — Amplify after a successful apply](/images/4-Workshop/amplify-console-after-terraform-apply.png)
 
 After you open the app, the **Overview** page shows the **main** branch; open that branch to deploy.
 
-![Amplify — Overview, main branch](/images/4-workshop/amplify-console-overview-main-branch.png)
+![Amplify — Overview, main branch](/images/4-Workshop/amplify-console-overview-main-branch.png)
 
 ### Build specification: amplify.yml
 
