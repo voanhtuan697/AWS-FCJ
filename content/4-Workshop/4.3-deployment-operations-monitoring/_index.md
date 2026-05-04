@@ -37,7 +37,7 @@ cd spendwise
 
 ### Repository layout (infrastructure)
 
-![Folder tree of SpendWiseApp/infrastructure: docs, environments, modules (alb, amplify, bastion, cloudfront_alb, cognito, db_password_secret, ecr, ecs, monitoring, rds, security_groups, vpc, waf_alb), scripts](/images/4-workshop/4.3-spendwise-infrastructure-folder-tree.png)
+![Folder tree of SpendWiseApp/infrastructure: docs, environments, modules (alb, amplify, bastion, cloudfront_alb, cognito, db_password_secret, ecr, ecs, monitoring, rds, security_groups, vpc, waf_alb), scripts](/images/4-Workshop/4.3-spendwise-infrastructure-folder-tree.png)
 
 ### Content
 

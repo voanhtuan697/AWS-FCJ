@@ -130,14 +130,14 @@ After that succeeds, smoke-test a few features to confirm the browser can call t
 
 **Sign-up check (Cognito):** exercise **sign-up** — after a successful submit, the browser should go to the **Confirm Signup** page.
 
-![SpendWise — sign-up form; after submit, redirect to Confirm Signup (Cognito)](/images/4-workshop/spendwise-signup-cognito-flow.png)
+![SpendWise — sign-up form; after submit, redirect to Confirm Signup (Cognito)](/images/4-Workshop/spendwise-signup-cognito-flow.png)
 
 Next, the **Confirm Signup** page appears (the URL usually contains **confirm-signup** and an **email** parameter); the user enters the **verification code** Cognito sent by email. **Amazon Cognito** manages this flow.
 
-![SpendWise — Confirm Signup: enter verification code (Cognito)](/images/4-workshop/spendwise-confirm-signup-cognito.png)
+![SpendWise — Confirm Signup: enter verification code (Cognito)](/images/4-Workshop/spendwise-confirm-signup-cognito.png)
 
 **After sign-in:** the **dashboard** UI (for example **/dashboard** on the Amplify domain) shows a **Cognito** session and that the protected Next.js route loaded; further UI actions call the **ECS** API when there is data.
 
-![SpendWise — dashboard UI after login](/images/4-workshop/spendwise-dashboard-after-login.png)
+![SpendWise — dashboard UI after login](/images/4-Workshop/spendwise-dashboard-after-login.png)
 
 Design reference: [4.2.3 Backend and runtime platform](../4.2-aws-infrastructure-security/4.2.3-backend-platform/).

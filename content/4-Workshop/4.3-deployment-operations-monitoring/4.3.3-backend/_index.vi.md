@@ -130,14 +130,14 @@ Sau khi thành công có thể thực hiện test thử một vài chức năng 
 
 **Kiểm thử đăng ký (Cognito):** Kiểm thử chức năng **đăng ký** — nếu gửi form thành công, trình duyệt thường chuyển sang trang **Confirm Signup**.
 
-![SpendWise — form đăng ký; sau khi gửi thành công chuyển sang Confirm Signup (Cognito)](/images/4-workshop/spendwise-signup-cognito-flow.png)
+![SpendWise — form đăng ký; sau khi gửi thành công chuyển sang Confirm Signup (Cognito)](/images/4-Workshop/spendwise-signup-cognito-flow.png)
 
 Sau bước trên, trang **Confirm Signup** hiển thị (URL thường có **confirm-signup** và tham số **email**); người dùng nhập **mã xác nhận** Cognito gửi qua email. Luồng này do **Amazon Cognito** quản lý.
 
-![SpendWise — Confirm Signup: nhập mã xác nhận (Cognito)](/images/4-workshop/spendwise-confirm-signup-cognito.png)
+![SpendWise — Confirm Signup: nhập mã xác nhận (Cognito)](/images/4-Workshop/spendwise-confirm-signup-cognito.png)
 
 **Sau khi đăng nhập:** giao diện **dashboard** (ví dụ đường **/dashboard** trên domain Amplify) cho thấy phiên **Cognito** và ứng dụng Next.js đã vào được trang bảo vệ; các thao tác tiếp theo trên UI sẽ gọi API xuống backend **ECS** khi có dữ liệu.
 
-![SpendWise — giao diện dashboard sau đăng nhập](/images/4-workshop/spendwise-dashboard-after-login.png)
+![SpendWise — giao diện dashboard sau đăng nhập](/images/4-Workshop/spendwise-dashboard-after-login.png)
 
 Tham chiếu thiết kế: [4.2.3 Backend và nền tảng xử lý](../4.2-aws-infrastructure-security/4.2.3-backend-platform/).

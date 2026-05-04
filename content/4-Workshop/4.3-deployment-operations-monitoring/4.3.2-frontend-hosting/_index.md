@@ -14,15 +14,15 @@ aliases:
 
 After a successful **terraform apply**, open **AWS Amplify** in the **Region** you deployed to (e.g. **US East (N. Virginia)**, region code **us-east-1**). The **All apps** page lists the app Terraform created; the UI may look like this:
 
-![All apps — Amplify after a successful apply](/images/4-workshop/amplify-console-after-terraform-apply.png)
+![All apps — Amplify after a successful apply](/images/4-Workshop/amplify-console-after-terraform-apply.png)
 
 After you open the app, the **Overview** page shows the **main** branch; open that branch to deploy.
 
-![Amplify — Overview, main branch](/images/4-workshop/amplify-console-overview-main-branch.png)
+![Amplify — Overview, main branch](/images/4-Workshop/amplify-console-overview-main-branch.png)
 
 After the **main** branch build succeeds, open the app from the **default Amplify domain** for that branch (typically **main.…amplifyapp.com**; the full URL appears on the branch page in the Amplify console).
 
-![SpendWise — landing page on Amplify after deploy](/images/4-workshop/spendwise-amplify-landing.png)
+![SpendWise — landing page on Amplify after deploy](/images/4-Workshop/spendwise-amplify-landing.png)
 
 If the landing page renders as above, **frontend hosting** on Amplify is serving the build. The **amplify.yml** and Amplify/CloudFront notes below cover the build spec; backend deployment (ECR, ECS, migrations) and the **sign-up / Cognito confirm** walkthrough are in **[4.3.3 Deploy backend](../4.3.3-backend/)**.
 
