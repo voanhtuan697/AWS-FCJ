@@ -14,11 +14,17 @@ aliases:
 
 Sau khi **terraform apply** thành công, mở **AWS Amplify** đúng **Region** đã triển khai (ví dụ **US East (N. Virginia)**, mã vùng **us-east-1**). Trang **All apps** liệt kê ứng dụng Terraform vừa tạo; giao diện có thể như sau:
 
-![Trang All apps — Amplify sau khi apply thành công](/images/4-Workshop/amplify-console-after-terraform-apply.png)
+![Trang All apps — Amplify sau khi apply thành công](/images/4-workshop/amplify-console-after-terraform-apply.png)
 
 Sau khi bấm vào ứng dụng, màn hình **Overview** hiển thị nhánh **main**; truy cập nhánh này để thực hiện deploy.
 
-![Amplify — Overview, nhánh main](/images/4-Workshop/amplify-console-overview-main-branch.png)
+![Amplify — Overview, nhánh main](/images/4-workshop/amplify-console-overview-main-branch.png)
+
+Sau khi deploy nhánh **main** thành công, có thể mở ứng dụng qua **domain mặc định** mà Amplify gán cho branch (thường có dạng **main.…amplifyapp.com**; URL đầy đủ hiển thị trên trang branch trong Amplify Console).
+
+![SpendWise — trang landing trên Amplify sau khi deploy](/images/4-workshop/spendwise-amplify-landing.png)
+
+Nếu giao diện landing hiển thị như trên thì **hosting frontend** (Amplify) đã phục vụ được bản build. Phần **amplify.yml** và CloudFront/Amplify nằm dưới đây; triển khai backend (ECR, ECS, migrate) và **thử đăng ký / xác nhận Cognito** được mô tả tại **[4.3.3 Triển khai backend](../4.3.3-backend/)**.
 
 ### Đặc tả build: amplify.yml
 

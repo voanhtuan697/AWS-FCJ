@@ -126,4 +126,18 @@ aws ecs describe-tasks \
 
 Kết quả **describe-tasks** là **exitCode** của container: **0** nghĩa là migrate **thành công**; khác 0 là lỗi — xem log CloudWatch (**ecs_log_group** trong terraform output). **prisma migrate deploy** chỉ áp các file đã có trong **prisma/migrations**.
 
+Sau khi thành công có thể thực hiện test thử một vài chức năng để kiểm tra khả năng gọi API từ FE (Amplify) đến BE (ECS task) xem ứng dụng đã hoạt động đúng mong muốn.
+
+**Kiểm thử đăng ký (Cognito):** Kiểm thử chức năng **đăng ký** — nếu gửi form thành công, trình duyệt thường chuyển sang trang **Confirm Signup**.
+
+![SpendWise — form đăng ký; sau khi gửi thành công chuyển sang Confirm Signup (Cognito)](/images/4-workshop/spendwise-signup-cognito-flow.png)
+
+Sau bước trên, trang **Confirm Signup** hiển thị (URL thường có **confirm-signup** và tham số **email**); người dùng nhập **mã xác nhận** Cognito gửi qua email. Luồng này do **Amazon Cognito** quản lý.
+
+![SpendWise — Confirm Signup: nhập mã xác nhận (Cognito)](/images/4-workshop/spendwise-confirm-signup-cognito.png)
+
+**Sau khi đăng nhập:** giao diện **dashboard** (ví dụ đường **/dashboard** trên domain Amplify) cho thấy phiên **Cognito** và ứng dụng Next.js đã vào được trang bảo vệ; các thao tác tiếp theo trên UI sẽ gọi API xuống backend **ECS** khi có dữ liệu.
+
+![SpendWise — giao diện dashboard sau đăng nhập](/images/4-workshop/spendwise-dashboard-after-login.png)
+
 Tham chiếu thiết kế: [4.2.3 Backend và nền tảng xử lý](../4.2-aws-infrastructure-security/4.2.3-backend-platform/).

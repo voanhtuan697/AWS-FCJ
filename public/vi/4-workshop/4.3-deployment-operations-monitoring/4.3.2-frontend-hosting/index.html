@@ -15,21 +15,21 @@
     <title>Frontend hosting :: Báo cáo thực tập</title>
 
     
-    <link href="../../../../css/nucleus.css?1777861823" rel="stylesheet">
-    <link href="../../../../css/fontawesome-all.min.css?1777861823" rel="stylesheet">
-    <link href="../../../../css/hybrid.css?1777861823" rel="stylesheet">
-    <link href="../../../../css/featherlight.min.css?1777861823" rel="stylesheet">
-    <link href="../../../../css/perfect-scrollbar.min.css?1777861823" rel="stylesheet">
-    <link href="../../../../css/auto-complete.css?1777861823" rel="stylesheet">
-    <link href="../../../../css/atom-one-dark-reasonable.css?1777861823" rel="stylesheet">
-    <link href="../../../../css/theme.css?1777861823" rel="stylesheet">
-    <link href="../../../../css/hugo-theme.css?1777861823" rel="stylesheet">
+    <link href="../../../../css/nucleus.css?1777884388" rel="stylesheet">
+    <link href="../../../../css/fontawesome-all.min.css?1777884388" rel="stylesheet">
+    <link href="../../../../css/hybrid.css?1777884388" rel="stylesheet">
+    <link href="../../../../css/featherlight.min.css?1777884388" rel="stylesheet">
+    <link href="../../../../css/perfect-scrollbar.min.css?1777884388" rel="stylesheet">
+    <link href="../../../../css/auto-complete.css?1777884388" rel="stylesheet">
+    <link href="../../../../css/atom-one-dark-reasonable.css?1777884388" rel="stylesheet">
+    <link href="../../../../css/theme.css?1777884388" rel="stylesheet">
+    <link href="../../../../css/hugo-theme.css?1777884388" rel="stylesheet">
     
-    <link href="../../../../css/theme-workshop.css?1777861823" rel="stylesheet">
+    <link href="../../../../css/theme-workshop.css?1777884388" rel="stylesheet">
     
     
 
-    <script src="../../../../js/jquery-3.3.1.min.js?1777861823"></script>
+    <script src="../../../../js/jquery-3.3.1.min.js?1777884388"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../../js/lunr.min.js?1777861823"></script>
-<script type="text/javascript" src="../../../../js/auto-complete.js?1777861823"></script>
+<script type="text/javascript" src="../../../../js/lunr.min.js?1777884388"></script>
+<script type="text/javascript" src="../../../../js/auto-complete.js?1777884388"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/aws-fcj-report\/\/vi";
     
 </script>
-<script type="text/javascript" src="../../../../js/search.js?1777861823"></script>
+<script type="text/javascript" src="../../../../js/search.js?1777884388"></script>
  
   </div>
 
@@ -785,9 +785,12 @@
 	<h2 id="432-frontend-hosting">4.3.2 Frontend hosting</h2>
 <h3 id="aws-amplify-console-sau-khi-terraform-apply">AWS Amplify Console sau khi terraform apply</h3>
 <p>Sau khi <strong>terraform apply</strong> thành công, mở <strong>AWS Amplify</strong> đúng <strong>Region</strong> đã triển khai (ví dụ <strong>US East (N. Virginia)</strong>, mã vùng <strong>us-east-1</strong>). Trang <strong>All apps</strong> liệt kê ứng dụng Terraform vừa tạo; giao diện có thể như sau:</p>
-<p><img src="../../../../images/4-Workshop/amplify-console-after-terraform-apply.png" alt="Trang All apps — Amplify sau khi apply thành công"></p>
+<p><img src="../../../../images/4-workshop/amplify-console-after-terraform-apply.png" alt="Trang All apps — Amplify sau khi apply thành công"></p>
 <p>Sau khi bấm vào ứng dụng, màn hình <strong>Overview</strong> hiển thị nhánh <strong>main</strong>; truy cập nhánh này để thực hiện deploy.</p>
-<p><img src="../../../../images/4-Workshop/amplify-console-overview-main-branch.png" alt="Amplify — Overview, nhánh main"></p>
+<p><img src="../../../../images/4-workshop/amplify-console-overview-main-branch.png" alt="Amplify — Overview, nhánh main"></p>
+<p>Sau khi deploy nhánh <strong>main</strong> thành công, có thể mở ứng dụng qua <strong>domain mặc định</strong> mà Amplify gán cho branch (thường có dạng <strong>main.…amplifyapp.com</strong>; URL đầy đủ hiển thị trên trang branch trong Amplify Console).</p>
+<p><img src="../../../../images/4-workshop/spendwise-amplify-landing.png" alt="SpendWise — trang landing trên Amplify sau khi deploy"></p>
+<p>Nếu giao diện landing hiển thị như trên thì <strong>hosting frontend</strong> (Amplify) đã phục vụ được bản build. Phần <strong>amplify.yml</strong> và CloudFront/Amplify nằm dưới đây; triển khai backend (ECR, ECS, migrate) và <strong>thử đăng ký / xác nhận Cognito</strong> được mô tả tại <strong><a href="../../../../vi/4-workshop/4.3-deployment-operations-monitoring/4.3.3-backend/">4.3.3 Triển khai backend</a></strong>.</p>
 <h3 id="đặc-tả-build-amplifyyml">Đặc tả build: amplify.yml</h3>
 <p>Amplify Hosting không tự suy ra bố cục monorepo. <strong>Đặc tả build</strong> ở <strong>thư mục gốc repository</strong> — file <strong>amplify.yml</strong> trong <a href="https://github.com/benguinsan/spendwise">SpendWiseApp</a> — cho Amplify biết thư mục ứng dụng Next.js, cách cài dependency, lệnh build và thư mục artifact để publish.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># SpendWiseApp/amplify.yml (repository root)</span>
@@ -1351,19 +1354,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../../js/clipboard.min.js?1777861823"></script>
-    <script src="../../../../js/perfect-scrollbar.min.js?1777861823"></script>
-    <script src="../../../../js/perfect-scrollbar.jquery.min.js?1777861823"></script>
-    <script src="../../../../js/jquery.sticky.js?1777861823"></script>
-    <script src="../../../../js/featherlight.min.js?1777861823"></script>
-    <script src="../../../../js/highlight.pack.js?1777861823"></script>
+    <script src="../../../../js/clipboard.min.js?1777884388"></script>
+    <script src="../../../../js/perfect-scrollbar.min.js?1777884388"></script>
+    <script src="../../../../js/perfect-scrollbar.jquery.min.js?1777884388"></script>
+    <script src="../../../../js/jquery.sticky.js?1777884388"></script>
+    <script src="../../../../js/featherlight.min.js?1777884388"></script>
+    <script src="../../../../js/highlight.pack.js?1777884388"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../../js/modernizr.custom-3.6.0.js?1777861823"></script>
-    <script src="../../../../js/learn.js?1777861823"></script>
-    <script src="../../../../js/hugo-learn.js?1777861823"></script>
+    <script src="../../../../js/modernizr.custom-3.6.0.js?1777884388"></script>
+    <script src="../../../../js/learn.js?1777884388"></script>
+    <script src="../../../../js/hugo-learn.js?1777884388"></script>
 
-    <link href="../../../../mermaid/mermaid.css?1777861823" rel="stylesheet" />
-    <script src="../../../../mermaid/mermaid.js?1777861823"></script>
+    <link href="../../../../mermaid/mermaid.css?1777884388" rel="stylesheet" />
+    <script src="../../../../mermaid/mermaid.js?1777884388"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

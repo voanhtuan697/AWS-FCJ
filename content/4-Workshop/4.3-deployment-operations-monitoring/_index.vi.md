@@ -25,7 +25,7 @@ cd spendwise
 
 4. **Chuẩn bị biến.** Trong **infrastructure/environments/dev**, sao chép **terraform.tfvars.example** thành **terraform.tfvars** và điền giá trị. Token và secret không commit.
 
-5. **Triển khai theo lớp** theo các mục dưới. Chạy **terraform init**, **plan**, **apply** trong **environments/dev** khi giảng viên xác nhận phụ thuộc đã đủ. Thực tế thường **một lần apply** cho cả stack; các mục numbered giải thích **module nào đang đóng vai trò gì**.
+5. **Triển khai theo lớp** theo các mục dưới. Chạy **terraform init**, **plan**, **apply** trong **environments/dev**. Thực tế thường **một lần apply** cho cả stack; các mục numbered giải thích **module nào đang đóng vai trò gì**.
 
 **Cách dùng trang này:** Coi như **checklist và sơ đồ đường đi**. Mở đúng đường dẫn trong bản clone — **không** copy từng trang Terraform từ web workshop.
 
@@ -37,7 +37,7 @@ cd spendwise
 
 ### Cấu trúc thư mục (infrastructure)
 
-![Cây thư mục SpendWiseApp/infrastructure: docs, environments, modules (alb, amplify, bastion, cloudfront_alb, cognito, db_password_secret, ecr, ecs, monitoring, rds, security_groups, vpc, waf_alb), scripts](/images/4-Workshop/4.3-spendwise-infrastructure-folder-tree.png)
+![Cây thư mục SpendWiseApp/infrastructure: docs, environments, modules (alb, amplify, bastion, cloudfront_alb, cognito, db_password_secret, ecr, ecs, monitoring, rds, security_groups, vpc, waf_alb), scripts](/images/4-workshop/4.3-spendwise-infrastructure-folder-tree.png)
 
 ### Nội dung
 

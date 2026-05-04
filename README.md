@@ -6,7 +6,7 @@ Chào mừng bạn đến với báo cáo thực tập của mình tại Amazon 
 
 Xin chào! Mình là **Võ Anh Tuấn**, hiện đang là sinh viên ngành Công nghệ Thông tin tại Đại học Sài Gòn. Website này là nơi mình ghi lại hành trình thực tập 2 tháng đầy thú vị tại AWS Vietnam với vai trò FCJ Cloud Intern.
 
-**Thời gian thực tập:** Từ 09/03/2026 đến 01/05/2026
+**Thời gian thực tập:** Từ 09/03/2026 đến 02/05/2026
 
 ## Xem trực tiếp
 

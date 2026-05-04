@@ -15,21 +15,21 @@
     <title>Terraform deployment (by layer) :: Internship Report</title>
 
     
-    <link href="../../css/nucleus.css?1777861823" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1777861823" rel="stylesheet">
-    <link href="../../css/hybrid.css?1777861823" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1777861823" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1777861823" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1777861823" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1777861823" rel="stylesheet">
-    <link href="../../css/theme.css?1777861823" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1777861823" rel="stylesheet">
+    <link href="../../css/nucleus.css?1777884388" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1777884388" rel="stylesheet">
+    <link href="../../css/hybrid.css?1777884388" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1777884388" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1777884388" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1777884388" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1777884388" rel="stylesheet">
+    <link href="../../css/theme.css?1777884388" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1777884388" rel="stylesheet">
     
-    <link href="../../css/theme-workshop.css?1777861823" rel="stylesheet">
+    <link href="../../css/theme-workshop.css?1777884388" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1777861823"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1777884388"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1777861823"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1777861823"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1777884388"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1777884388"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/aws-fcj-report\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1777861823"></script>
+<script type="text/javascript" src="../../js/search.js?1777884388"></script>
  
   </div>
 
@@ -748,9 +748,9 @@
     <li><a href="#43-terraform-deployment-by-layer">4.3 Terraform deployment (by layer)</a>
       <ul>
         <li><a href="#workshop-flow">Workshop flow</a></li>
-        <li><a href="#why-terraform-fits-this-stack">Why Terraform fits this stack</a></li>
+        <li><a href="#why-use-terraform">Why use Terraform</a></li>
         <li><a href="#repository-layout-infrastructure">Repository layout (infrastructure)</a></li>
-        <li><a href="#chapters">Chapters</a></li>
+        <li><a href="#content">Content</a></li>
       </ul>
     </li>
   </ul>
@@ -778,7 +778,7 @@
 
 
 	<h2 id="43-terraform-deployment-by-layer">4.3 Terraform deployment (by layer)</h2>
-<p>This chapter is a <strong>hands-on AWS workshop</strong>: you work from a <strong>Git clone</strong> of <a href="https://github.com/benguinsan/spendwise">SpendWise on GitHub</a>, edit configuration locally, and apply Terraform under <strong>infrastructure/</strong> in that repository. Design rationale stays in <a href="../../4-workshop/4.2-aws-infrastructure-security/">4.2 AWS infrastructure and security foundation</a>. Here we focus on <strong>order of work</strong> and <strong>what to open in the repo</strong> — not pasting long Terraform into the browser.</p>
+<p>This chapter is a <strong>hands-on AWS workshop</strong>: you work from a <strong>Git clone</strong> of <a href="https://github.com/benguinsan/spendwise">SpendWise on GitHub</a>, edit configuration locally, and run Terraform under <strong>infrastructure/</strong> in that repository. Design rationale is in <a href="../../4-workshop/4.2-aws-infrastructure-security/">4.2 AWS infrastructure and security foundation</a>. Here the focus is <strong>order of work</strong> and <strong>opening the right files in the repo</strong> — not dumping long Terraform into the browser to copy.</p>
 <h3 id="workshop-flow">Workshop flow</h3>
 <ol>
 <li><strong>Clone the repository.</strong> Official URL: <strong><a href="https://github.com/benguinsan/spendwise">https://github.com/benguinsan/spendwise</a></strong>. The repo root contains <strong>frontend/</strong>, <strong>backend/</strong>, and <strong>infrastructure/</strong>.</li>
@@ -787,28 +787,28 @@
 </span></span><span style="display:flex;"><span>cd spendwise
 </span></span></code></pre></div><ol start="2">
 <li>
-<p><strong>Install tooling on your laptop:</strong> <strong>Terraform</strong>, <strong>AWS CLI</strong>, and a current <strong>Git</strong> client. Configure <strong>AWS credentials</strong> for the account you use in the lab <strong>aws configure</strong> or environment variables.</p>
+<p><strong>Install tooling on your laptop:</strong> <strong>Terraform</strong>, <strong>AWS CLI</strong>, and a current <strong>Git</strong> client. Configure <strong>AWS credentials</strong> for the lab account with <strong>aws configure</strong> or environment variables.</p>
 </li>
 <li>
-<p><strong>Open the stack in an editor.</strong> All Terraform for the sample environment lives under <strong>infrastructure/</strong> from the repo root. The dev root module is <strong>environments/dev/main.tf</strong>; reusable pieces are under <strong>modules/</strong>.</p>
+<p><strong>Open the stack in an editor.</strong> All Terraform for the sample environment lives under <strong>infrastructure/</strong> from the repo root. The dev root module is <strong>environments/dev/main.tf</strong>; reusable pieces live under <strong>modules/</strong>.</p>
 </li>
 <li>
-<p><strong>Prepare variables.</strong> From <strong>infrastructure/environments/dev</strong>, copy <strong>terraform.tfvars.example</strong> to <strong>terraform.tfvars</strong> and fill values. Treat tokens and secrets as confidential.</p>
+<p><strong>Prepare variables.</strong> In <strong>infrastructure/environments/dev</strong>, copy <strong>terraform.tfvars.example</strong> to <strong>terraform.tfvars</strong> and fill in values. <strong>Do not commit</strong> tokens or secrets.</p>
 </li>
 <li>
-<p><strong>Deploy in layers</strong> following the sections below. Run <strong>terraform init</strong>, <strong>plan</strong>, and <strong>apply</strong> from <strong>environments/dev</strong> when your instructor says the dependencies for that layer are ready. In practice one <strong>apply</strong> often covers the whole stack; the numbered topics explain <strong>which modules matter</strong> for each concern.</p>
+<p><strong>Deploy in layers</strong> using the sections below. Run <strong>terraform init</strong>, <strong>plan</strong>, and <strong>apply</strong> in <strong>environments/dev</strong>. In practice one <strong>apply</strong> often covers the whole stack; the numbered sections explain <strong>which module plays which role</strong>.</p>
 </li>
 </ol>
-<p><strong>How to use these pages:</strong> Treat them as a <strong>checklist and map</strong>. Open the cited paths in your clone instead of copying multi-page code blocks from the workshop site.</p>
-<h3 id="why-terraform-fits-this-stack">Why Terraform fits this stack</h3>
+<p><strong>How to use these pages:</strong> Treat them as a <strong>checklist and roadmap</strong>. Open the matching paths in your clone — <strong>do not</strong> copy whole Terraform pages from the workshop site.</p>
+<h3 id="why-use-terraform">Why use Terraform</h3>
 <ul>
-<li><strong>Infrastructure as code:</strong> VPCs, security groups, RDS, ECS, and related resources stay in versioned files.</li>
-<li><strong>Modules:</strong> <strong>modules/vpc</strong>, <strong>modules/ecs</strong>, <strong>modules/rds</strong>, <strong>modules/amplify</strong>, <strong>modules/cognito</strong>, and others mirror the layered view in section 4.2.</li>
+<li><strong>Infrastructure as code:</strong> VPCs, security groups, RDS, ECS, and related resources live in versioned files.</li>
+<li><strong>Modules:</strong> <strong>modules/vpc</strong>, <strong>modules/ecs</strong>, <strong>modules/rds</strong>, <strong>modules/amplify</strong>, <strong>modules/cognito</strong>, and others line up with the layers in section 4.2.</li>
 <li><strong>Ordering:</strong> Terraform resolves dependencies so <strong>network → compute → data</strong> stay consistent.</li>
 </ul>
 <h3 id="repository-layout-infrastructure">Repository layout (infrastructure)</h3>
-<p><img src="../../images/4-Workshop/4.3-spendwise-infrastructure-folder-tree.png" alt="Folder tree of SpendWiseApp/infrastructure: docs, environments, modules (alb, amplify, bastion, cloudfront_alb, cognito, db_password_secret, ecr, ecs, monitoring, rds, security_groups, vpc, waf_alb), scripts"></p>
-<h3 id="chapters">Chapters</h3>
+<p><img src="../../images/4-workshop/4.3-spendwise-infrastructure-folder-tree.png" alt="Folder tree of SpendWiseApp/infrastructure: docs, environments, modules (alb, amplify, bastion, cloudfront_alb, cognito, db_password_secret, ecr, ecs, monitoring, rds, security_groups, vpc, waf_alb), scripts"></p>
+<h3 id="content">Content</h3>
 <ol>
 <li><a href="../../4-workshop/4.3-deployment-operations-monitoring/4.3.1-run-infrastructure-terraform/">4.3.1 Run infrastructure with Terraform</a></li>
 <li><a href="../../4-workshop/4.3-deployment-operations-monitoring/4.3.2-frontend-hosting/">4.3.2 Frontend hosting</a></li>
@@ -1306,19 +1306,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1777861823"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1777861823"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1777861823"></script>
-    <script src="../../js/jquery.sticky.js?1777861823"></script>
-    <script src="../../js/featherlight.min.js?1777861823"></script>
-    <script src="../../js/highlight.pack.js?1777861823"></script>
+    <script src="../../js/clipboard.min.js?1777884388"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1777884388"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1777884388"></script>
+    <script src="../../js/jquery.sticky.js?1777884388"></script>
+    <script src="../../js/featherlight.min.js?1777884388"></script>
+    <script src="../../js/highlight.pack.js?1777884388"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1777861823"></script>
-    <script src="../../js/learn.js?1777861823"></script>
-    <script src="../../js/hugo-learn.js?1777861823"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1777884388"></script>
+    <script src="../../js/learn.js?1777884388"></script>
+    <script src="../../js/hugo-learn.js?1777884388"></script>
 
-    <link href="../../mermaid/mermaid.css?1777861823" rel="stylesheet" />
-    <script src="../../mermaid/mermaid.js?1777861823"></script>
+    <link href="../../mermaid/mermaid.css?1777884388" rel="stylesheet" />
+    <script src="../../mermaid/mermaid.js?1777884388"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

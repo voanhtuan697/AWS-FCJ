@@ -15,21 +15,21 @@
     <title>Frontend hosting :: Internship Report</title>
 
     
-    <link href="../../../css/nucleus.css?1777861823" rel="stylesheet">
-    <link href="../../../css/fontawesome-all.min.css?1777861823" rel="stylesheet">
-    <link href="../../../css/hybrid.css?1777861823" rel="stylesheet">
-    <link href="../../../css/featherlight.min.css?1777861823" rel="stylesheet">
-    <link href="../../../css/perfect-scrollbar.min.css?1777861823" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1777861823" rel="stylesheet">
-    <link href="../../../css/atom-one-dark-reasonable.css?1777861823" rel="stylesheet">
-    <link href="../../../css/theme.css?1777861823" rel="stylesheet">
-    <link href="../../../css/hugo-theme.css?1777861823" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1777884388" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1777884388" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1777884388" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1777884388" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1777884388" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1777884388" rel="stylesheet">
+    <link href="../../../css/atom-one-dark-reasonable.css?1777884388" rel="stylesheet">
+    <link href="../../../css/theme.css?1777884388" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1777884388" rel="stylesheet">
     
-    <link href="../../../css/theme-workshop.css?1777861823" rel="stylesheet">
+    <link href="../../../css/theme-workshop.css?1777884388" rel="stylesheet">
     
     
 
-    <script src="../../../js/jquery-3.3.1.min.js?1777861823"></script>
+    <script src="../../../js/jquery-3.3.1.min.js?1777884388"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../js/lunr.min.js?1777861823"></script>
-<script type="text/javascript" src="../../../js/auto-complete.js?1777861823"></script>
+<script type="text/javascript" src="../../../js/lunr.min.js?1777884388"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1777884388"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/aws-fcj-report\/";
     
 </script>
-<script type="text/javascript" src="../../../js/search.js?1777861823"></script>
+<script type="text/javascript" src="../../../js/search.js?1777884388"></script>
  
   </div>
 
@@ -785,9 +785,12 @@
 	<h2 id="432-frontend-hosting">4.3.2 Frontend hosting</h2>
 <h3 id="aws-amplify-console-after-terraform-apply">AWS Amplify Console after terraform apply</h3>
 <p>After a successful <strong>terraform apply</strong>, open <strong>AWS Amplify</strong> in the <strong>Region</strong> you deployed to (e.g. <strong>US East (N. Virginia)</strong>, region code <strong>us-east-1</strong>). The <strong>All apps</strong> page lists the app Terraform created; the UI may look like this:</p>
-<p><img src="../../../images/4-Workshop/amplify-console-after-terraform-apply.png" alt="All apps — Amplify after a successful apply"></p>
+<p><img src="../../../images/4-workshop/amplify-console-after-terraform-apply.png" alt="All apps — Amplify after a successful apply"></p>
 <p>After you open the app, the <strong>Overview</strong> page shows the <strong>main</strong> branch; open that branch to deploy.</p>
-<p><img src="../../../images/4-Workshop/amplify-console-overview-main-branch.png" alt="Amplify — Overview, main branch"></p>
+<p><img src="../../../images/4-workshop/amplify-console-overview-main-branch.png" alt="Amplify — Overview, main branch"></p>
+<p>After the <strong>main</strong> branch build succeeds, open the app from the <strong>default Amplify domain</strong> for that branch (typically <strong>main.…amplifyapp.com</strong>; the full URL appears on the branch page in the Amplify console).</p>
+<p><img src="../../../images/4-workshop/spendwise-amplify-landing.png" alt="SpendWise — landing page on Amplify after deploy"></p>
+<p>If the landing page renders as above, <strong>frontend hosting</strong> on Amplify is serving the build. The <strong>amplify.yml</strong> and Amplify/CloudFront notes below cover the build spec; backend deployment (ECR, ECS, migrations) and the <strong>sign-up / Cognito confirm</strong> walkthrough are in <strong><a href="../../../4-workshop/4.3-deployment-operations-monitoring/4.3.3-backend/">4.3.3 Deploy backend</a></strong>.</p>
 <h3 id="build-specification-amplifyyml">Build specification: amplify.yml</h3>
 <p>Amplify Hosting does not guess your monorepo layout. The <strong>build spec</strong> at the <strong>repository root</strong> — file <strong>amplify.yml</strong> in <a href="https://github.com/benguinsan/spendwise">SpendWiseApp</a> — tells Amplify which folder is the Next.js app and how to install dependencies, build, and which directory to publish.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># SpendWiseApp/amplify.yml (repository root)</span>
@@ -1351,19 +1354,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js?1777861823"></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1777861823"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js?1777861823"></script>
-    <script src="../../../js/jquery.sticky.js?1777861823"></script>
-    <script src="../../../js/featherlight.min.js?1777861823"></script>
-    <script src="../../../js/highlight.pack.js?1777861823"></script>
+    <script src="../../../js/clipboard.min.js?1777884388"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1777884388"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1777884388"></script>
+    <script src="../../../js/jquery.sticky.js?1777884388"></script>
+    <script src="../../../js/featherlight.min.js?1777884388"></script>
+    <script src="../../../js/highlight.pack.js?1777884388"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js?1777861823"></script>
-    <script src="../../../js/learn.js?1777861823"></script>
-    <script src="../../../js/hugo-learn.js?1777861823"></script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1777884388"></script>
+    <script src="../../../js/learn.js?1777884388"></script>
+    <script src="../../../js/hugo-learn.js?1777884388"></script>
 
-    <link href="../../../mermaid/mermaid.css?1777861823" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.js?1777861823"></script>
+    <link href="../../../mermaid/mermaid.css?1777884388" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.js?1777884388"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
