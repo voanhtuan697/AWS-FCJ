@@ -92,19 +92,6 @@
                 href="http://localhost:1313/aws-fcj-report/vi/2-proposal/"
                 />
   </url><url>
-    <loc>http://localhost:1313/aws-fcj-report/vi/4-workshop/4.2-aws-infrastructure-security/4.2.2-client-facing/</loc>
-    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/aws-fcj-report/4-workshop/4.2-aws-infrastructure-security/4.2.2-client-facing/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="http://localhost:1313/aws-fcj-report/vi/4-workshop/4.2-aws-infrastructure-security/4.2.2-client-facing/"
-                />
-  </url><url>
     <loc>http://localhost:1313/aws-fcj-report/vi/4-workshop/4.3-deployment-operations-monitoring/4.3.2-frontend-hosting/</loc>
     <lastmod>2024-01-01T00:00:00+00:00</lastmod>
     <xhtml:link
@@ -116,6 +103,19 @@
                 rel="alternate"
                 hreflang="vi"
                 href="http://localhost:1313/aws-fcj-report/vi/4-workshop/4.3-deployment-operations-monitoring/4.3.2-frontend-hosting/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/aws-fcj-report/vi/4-workshop/4.2-aws-infrastructure-security/4.2.2-client-facing/</loc>
+    <lastmod>2024-01-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/aws-fcj-report/4-workshop/4.2-aws-infrastructure-security/4.2.2-client-facing/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="http://localhost:1313/aws-fcj-report/vi/4-workshop/4.2-aws-infrastructure-security/4.2.2-client-facing/"
                 />
   </url><url>
     <loc>http://localhost:1313/aws-fcj-report/vi/4-workshop/4.2-aws-infrastructure-security/</loc>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hosting frontend on Báo cáo thực tập</title>
+    <title>Frontend hosting on Báo cáo thực tập</title>
     <link>http://localhost:1313/aws-fcj-report/vi/4-workshop/4.3-deployment-operations-monitoring/4.3.2-frontend-hosting/</link>
-    <description>Recent content in Hosting frontend on Báo cáo thực tập</description>
+    <description>Recent content in Frontend hosting on Báo cáo thực tập</description>
     <generator>Hugo</generator>
     <language>vi</language>
     <lastBuildDate></lastBuildDate>

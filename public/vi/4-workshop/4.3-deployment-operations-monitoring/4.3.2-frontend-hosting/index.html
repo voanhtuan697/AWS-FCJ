@@ -12,24 +12,24 @@
 
     <link rel="icon" href="../../../../images/favicon.png" type="image/png">
 
-    <title>Hosting frontend :: Báo cáo thực tập</title>
+    <title>Frontend hosting :: Báo cáo thực tập</title>
 
     
-    <link href="../../../../css/nucleus.css?1777827993" rel="stylesheet">
-    <link href="../../../../css/fontawesome-all.min.css?1777827993" rel="stylesheet">
-    <link href="../../../../css/hybrid.css?1777827993" rel="stylesheet">
-    <link href="../../../../css/featherlight.min.css?1777827993" rel="stylesheet">
-    <link href="../../../../css/perfect-scrollbar.min.css?1777827993" rel="stylesheet">
-    <link href="../../../../css/auto-complete.css?1777827993" rel="stylesheet">
-    <link href="../../../../css/atom-one-dark-reasonable.css?1777827993" rel="stylesheet">
-    <link href="../../../../css/theme.css?1777827993" rel="stylesheet">
-    <link href="../../../../css/hugo-theme.css?1777827993" rel="stylesheet">
+    <link href="../../../../css/nucleus.css?1777860573" rel="stylesheet">
+    <link href="../../../../css/fontawesome-all.min.css?1777860573" rel="stylesheet">
+    <link href="../../../../css/hybrid.css?1777860573" rel="stylesheet">
+    <link href="../../../../css/featherlight.min.css?1777860573" rel="stylesheet">
+    <link href="../../../../css/perfect-scrollbar.min.css?1777860573" rel="stylesheet">
+    <link href="../../../../css/auto-complete.css?1777860573" rel="stylesheet">
+    <link href="../../../../css/atom-one-dark-reasonable.css?1777860573" rel="stylesheet">
+    <link href="../../../../css/theme.css?1777860573" rel="stylesheet">
+    <link href="../../../../css/hugo-theme.css?1777860573" rel="stylesheet">
     
-    <link href="../../../../css/theme-workshop.css?1777827993" rel="stylesheet">
+    <link href="../../../../css/theme-workshop.css?1777860573" rel="stylesheet">
     
     
 
-    <script src="../../../../js/jquery-3.3.1.min.js?1777827993"></script>
+    <script src="../../../../js/jquery-3.3.1.min.js?1777860573"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../../js/lunr.min.js?1777827993"></script>
-<script type="text/javascript" src="../../../../js/auto-complete.js?1777827993"></script>
+<script type="text/javascript" src="../../../../js/lunr.min.js?1777860573"></script>
+<script type="text/javascript" src="../../../../js/auto-complete.js?1777860573"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/aws-fcj-report\/\/vi";
     
 </script>
-<script type="text/javascript" src="../../../../js/search.js?1777827993"></script>
+<script type="text/javascript" src="../../../../js/search.js?1777860573"></script>
  
   </div>
 
@@ -469,7 +469,7 @@
             
 <li
   data-nav-id="/vi/4-workshop/4.3-deployment-operations-monitoring/4.3.2-frontend-hosting/"
-  title="Hosting frontend"
+  title="Frontend hosting"
   class="dd-item 
         
         active
@@ -477,7 +477,7 @@
         "
 >
   <a href="../../../../vi/4-workshop/4.3-deployment-operations-monitoring/4.3.2-frontend-hosting/">
-     <b> 4.3.2 </b> Hosting frontend 
+     <b> 4.3.2 </b> Frontend hosting 
     <i class="fas fa-check read-icon"></i>
     
   </a>
@@ -735,7 +735,7 @@
             
           
           
-            <a href='../../../../vi/'>Báo cáo thực tập</a> > <a href='../../../../vi/4-workshop/'>Workshop</a> > <a href='../../../../vi/4-workshop/4.3-deployment-operations-monitoring/'>Triển khai Terraform (theo lớp)</a> > Hosting frontend
+            <a href='../../../../vi/'>Báo cáo thực tập</a> > <a href='../../../../vi/4-workshop/'>Workshop</a> > <a href='../../../../vi/4-workshop/4.3-deployment-operations-monitoring/'>Triển khai Terraform (theo lớp)</a> > Frontend hosting
           
         
           
@@ -751,9 +751,11 @@
                     <div class="progress">
   <div class="wrapper"><nav id="TableOfContents">
   <ul>
-    <li><a href="#432-hosting-frontend">4.3.2 Hosting frontend</a>
+    <li><a href="#432-frontend-hosting">4.3.2 Frontend hosting</a>
       <ul>
         <li><a href="#aws-amplify-console-sau-khi-terraform-apply">AWS Amplify Console sau khi terraform apply</a></li>
+        <li><a href="#đặc-tả-build-amplifyyml">Đặc tả build: amplify.yml</a></li>
+        <li><a href="#vì-sao-dùng-cloudfront-cho-api-mixed-content">Vì sao dùng CloudFront cho API (mixed content)</a></li>
       </ul>
     </li>
   </ul>
@@ -772,7 +774,7 @@
           
             <h1>
               
-              Hosting frontend
+              Frontend hosting
             </h1>
           
 
@@ -780,13 +782,78 @@
 
 
 
-	<h2 id="432-hosting-frontend">4.3.2 Hosting frontend</h2>
+	<h2 id="432-frontend-hosting">4.3.2 Frontend hosting</h2>
 <h3 id="aws-amplify-console-sau-khi-terraform-apply">AWS Amplify Console sau khi terraform apply</h3>
 <p>Sau khi <strong>terraform apply</strong> thành công, mở <strong>AWS Amplify</strong> đúng <strong>Region</strong> đã triển khai (ví dụ <strong>US East (N. Virginia)</strong>, mã vùng <strong>us-east-1</strong>). Trang <strong>All apps</strong> liệt kê ứng dụng Terraform vừa tạo; giao diện có thể như sau:</p>
 <p><img src="../../../../images/4-workshop/amplify-console-after-terraform-apply.png" alt="Trang All apps — Amplify sau khi apply thành công"></p>
 <p>Sau khi bấm vào ứng dụng, màn hình <strong>Overview</strong> hiển thị nhánh <strong>main</strong>; truy cập nhánh này để thực hiện deploy.</p>
 <p><img src="../../../../images/4-workshop/amplify-console-overview-main-branch.png" alt="Amplify — Overview, nhánh main"></p>
-<p>Thiết kế liên quan (Amplify, API URL): <a href="../../../../vi/4-workshop/4.2-aws-infrastructure-security/4.2.2-client-facing/">4.2.2 Frontend Hosting và xác thực người dùng</a>.</p>
+<h3 id="đặc-tả-build-amplifyyml">Đặc tả build: amplify.yml</h3>
+<p>Amplify Hosting không tự suy ra bố cục monorepo. <strong>Đặc tả build</strong> ở <strong>thư mục gốc repository</strong> — file <strong>amplify.yml</strong> trong <a href="https://github.com/benguinsan/spendwise">SpendWiseApp</a> — cho Amplify biết thư mục ứng dụng Next.js, cách cài dependency, lệnh build và thư mục artifact để publish.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># SpendWiseApp/amplify.yml (repository root)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">applications</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">appRoot</span>: <span style="color:#ae81ff">frontend</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">frontend</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">phases</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">preBuild</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">commands</span>:
+</span></span><span style="display:flex;"><span>            - <span style="color:#ae81ff">npm install --legacy-peer-deps</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">build</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">commands</span>:
+</span></span><span style="display:flex;"><span>            - <span style="color:#ae81ff">npm run build</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">artifacts</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">baseDirectory</span>: <span style="color:#ae81ff">.next</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">files</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#e6db74">&#39;**/*&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">cache</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">paths</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#ae81ff">node_modules/**/*</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#ae81ff">.next/cache/**/*</span>
+</span></span></code></pre></div><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Block</th>
+          <th style="text-align: left">Vai trò</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>appRoot: frontend</strong></td>
+          <td style="text-align: left">Ứng dụng Next.js nằm trong <strong>frontend/</strong>; Amplify chạy các lệnh build từ thư mục đó.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>preBuild → npm install &ndash;legacy-peer-deps</strong></td>
+          <td style="text-align: left">Cài dependency trước khi biên dịch; <strong>&ndash;legacy-peer-deps</strong> tránh lỗi phân giải peer dependency quá chặt, thường gặp trong workspace Next.js hỗn hợp.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>build → npm run build</strong></td>
+          <td style="text-align: left">Sinh bản build production của Next.js (gồm cây <strong>.next</strong> mà Amplify phục vụ theo kiểu hosting này).</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>artifacts.baseDirectory: .next</strong></td>
+          <td style="text-align: left">Khai báo thư mục gốc artifact cho bản build đã sinh (khớp cách ứng dụng này được build cho Amplify).</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>cache.paths</strong></td>
+          <td style="text-align: left">Tăng tốc build lặp lại nhờ tái sử dụng <strong>node_modules</strong> và <strong>.next/cache</strong> giữa các lần build.</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Biến môi trường lúc build:</strong> Giá trị như <strong>NEXT_PUBLIC_API_URL</strong> do Terraform đưa vào môi trường app Amplify, nhưng được <strong>đóng gói vào bundle phía client tại thời điểm build</strong>. Sau khi đổi biến URL API trong Terraform hoặc trên console Amplify, hãy kích hoạt <strong>triển khai mới</strong> (build lại) để trình duyệt tải bundle khớp URL backend. Hành vi build được định nghĩa trong <strong>amplify.yml</strong>; giá trị biến đến từ Terraform / cấu hình app Amplify.</p>
+<h3 id="vì-sao-dùng-cloudfront-cho-api-mixed-content">Vì sao dùng CloudFront cho API (mixed content)</h3>
+<p>Frontend trên Amplify được phục vụ cho trình duyệt qua <strong>HTTPS</strong>. Trình duyệt áp dụng quy tắc <strong>mixed content</strong>: trang tải bằng HTTPS không được tải subresource hay gọi API qua <strong>HTTP</strong> thuần theo kiểu được coi là <em>active</em> content (ví dụ <strong>fetch</strong> / XHR tới API <strong>http://</strong>). Nếu SPA gọi API NestJS qua <strong>HTTP</strong> với hostname ALB thuần, trình duyệt sẽ chặn hoặc cảnh báo, ứng dụng có thể hỏng hoặc hành vi khác nhau giữa các trình duyệt.</p>
+<p><strong>Các lựa chọn trong stack này:</strong></p>
+<ol>
+<li>
+<p><strong>HTTPS trên ALB với hostname do bạn quản lý</strong> — Dùng <strong>alb_acm_certificate_arn</strong> (ACM <strong>cùng region</strong> với ALB), xác thực chứng chỉ trong DNS, trỏ hostname về ALB, đặt <strong>alb_public_api_base_url</strong>. Đây là hướng lâu dài đúng khi bạn có domain; với bài lab ngắn sẽ nhiều thành phần hơn.</p>
+</li>
+<li>
+<p><strong>CloudFront phía trước ALB (enable_api_cloudfront = true)</strong> — Terraform tạo phân phối <strong>Amazon CloudFront</strong> với <strong>chứng chỉ mặc định của CloudFront</strong>, nên API truy cập được qua URL <strong><a href="https://dxxxx.cloudfront.net">https://dxxxx.cloudfront.net</a></strong> mà <strong>không cần mua domain</strong> hay gắn ACM lên ALB. Trình duyệt thấy <strong>HTTPS → HTTPS</strong>, nên <strong>hết mixed content</strong>. Tùy cách các module nối origin, ALB có thể vẫn chỉ HTTP phía sau CloudFront trong khi URL API <strong>hướng tới người dùng</strong> luôn là HTTPS.</p>
+</li>
+</ol>
+<p><strong>Vì sao CloudFront hợp workshop và môi trường dev:</strong> mang lại <strong>URL HTTPS ổn định</strong> nhanh, <strong>khớp với Amplify</strong> khi frontend chỉ được phục vụ qua HTTPS, và tránh trì hoãn xác thực DNS của ACM khi bạn chỉ cần lab chạy được. Đánh đổi là thêm một chặng mạng và cần nắm cấu hình origin CloudFront–ALB; với production khi đã có domain riêng, thường ưu tiên ACM + ALB hoặc thiết lập CloudFront tùy chỉnh — xem <a href="../../../../vi/4-workshop/4.2-aws-infrastructure-security/4.2.2-client-facing/">4.2.2</a> và <a href="../../../../vi/4-workshop/4.2-aws-infrastructure-security/4.2.3-backend-platform/">4.2.3</a>.</p>
+<p>Thiết kế liên quan (Amplify, API URL): <a href="../../../../vi/4-workshop/4.2-aws-infrastructure-security/4.2.2-client-facing/">4.2.2 Frontend hosting và xác thực người dùng</a>.</p>
 <hr>
 
 
@@ -1284,19 +1351,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../../js/clipboard.min.js?1777827993"></script>
-    <script src="../../../../js/perfect-scrollbar.min.js?1777827993"></script>
-    <script src="../../../../js/perfect-scrollbar.jquery.min.js?1777827993"></script>
-    <script src="../../../../js/jquery.sticky.js?1777827993"></script>
-    <script src="../../../../js/featherlight.min.js?1777827993"></script>
-    <script src="../../../../js/highlight.pack.js?1777827993"></script>
+    <script src="../../../../js/clipboard.min.js?1777860573"></script>
+    <script src="../../../../js/perfect-scrollbar.min.js?1777860573"></script>
+    <script src="../../../../js/perfect-scrollbar.jquery.min.js?1777860573"></script>
+    <script src="../../../../js/jquery.sticky.js?1777860573"></script>
+    <script src="../../../../js/featherlight.min.js?1777860573"></script>
+    <script src="../../../../js/highlight.pack.js?1777860573"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../../js/modernizr.custom-3.6.0.js?1777827993"></script>
-    <script src="../../../../js/learn.js?1777827993"></script>
-    <script src="../../../../js/hugo-learn.js?1777827993"></script>
+    <script src="../../../../js/modernizr.custom-3.6.0.js?1777860573"></script>
+    <script src="../../../../js/learn.js?1777860573"></script>
+    <script src="../../../../js/hugo-learn.js?1777860573"></script>
 
-    <link href="../../../../mermaid/mermaid.css?1777827993" rel="stylesheet" />
-    <script src="../../../../mermaid/mermaid.js?1777827993"></script>
+    <link href="../../../../mermaid/mermaid.css?1777860573" rel="stylesheet" />
+    <script src="../../../../mermaid/mermaid.js?1777860573"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

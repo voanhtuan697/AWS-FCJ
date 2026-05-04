@@ -15,21 +15,21 @@
     <title>Frontend hosting :: Internship Report</title>
 
     
-    <link href="../../../css/nucleus.css?1777827991" rel="stylesheet">
-    <link href="../../../css/fontawesome-all.min.css?1777827991" rel="stylesheet">
-    <link href="../../../css/hybrid.css?1777827991" rel="stylesheet">
-    <link href="../../../css/featherlight.min.css?1777827991" rel="stylesheet">
-    <link href="../../../css/perfect-scrollbar.min.css?1777827991" rel="stylesheet">
-    <link href="../../../css/auto-complete.css?1777827991" rel="stylesheet">
-    <link href="../../../css/atom-one-dark-reasonable.css?1777827991" rel="stylesheet">
-    <link href="../../../css/theme.css?1777827991" rel="stylesheet">
-    <link href="../../../css/hugo-theme.css?1777827991" rel="stylesheet">
+    <link href="../../../css/nucleus.css?1777860572" rel="stylesheet">
+    <link href="../../../css/fontawesome-all.min.css?1777860572" rel="stylesheet">
+    <link href="../../../css/hybrid.css?1777860572" rel="stylesheet">
+    <link href="../../../css/featherlight.min.css?1777860572" rel="stylesheet">
+    <link href="../../../css/perfect-scrollbar.min.css?1777860572" rel="stylesheet">
+    <link href="../../../css/auto-complete.css?1777860572" rel="stylesheet">
+    <link href="../../../css/atom-one-dark-reasonable.css?1777860572" rel="stylesheet">
+    <link href="../../../css/theme.css?1777860572" rel="stylesheet">
+    <link href="../../../css/hugo-theme.css?1777860572" rel="stylesheet">
     
-    <link href="../../../css/theme-workshop.css?1777827991" rel="stylesheet">
+    <link href="../../../css/theme-workshop.css?1777860572" rel="stylesheet">
     
     
 
-    <script src="../../../js/jquery-3.3.1.min.js?1777827991"></script>
+    <script src="../../../js/jquery-3.3.1.min.js?1777860572"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -88,14 +88,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../../js/lunr.min.js?1777827991"></script>
-<script type="text/javascript" src="../../../js/auto-complete.js?1777827991"></script>
+<script type="text/javascript" src="../../../js/lunr.min.js?1777860572"></script>
+<script type="text/javascript" src="../../../js/auto-complete.js?1777860572"></script>
 <script type="text/javascript">
     
         var baseurl = "http:\/\/localhost:1313\/aws-fcj-report\/";
     
 </script>
-<script type="text/javascript" src="../../../js/search.js?1777827991"></script>
+<script type="text/javascript" src="../../../js/search.js?1777860572"></script>
  
   </div>
 
@@ -754,6 +754,8 @@
     <li><a href="#432-frontend-hosting">4.3.2 Frontend hosting</a>
       <ul>
         <li><a href="#aws-amplify-console-after-terraform-apply">AWS Amplify Console after terraform apply</a></li>
+        <li><a href="#build-specification-amplifyyml">Build specification: amplify.yml</a></li>
+        <li><a href="#why-cloudfront-for-the-api-mixed-content">Why CloudFront for the API (mixed content)</a></li>
       </ul>
     </li>
   </ul>
@@ -786,6 +788,71 @@
 <p><img src="../../../images/4-workshop/amplify-console-after-terraform-apply.png" alt="All apps — Amplify after a successful apply"></p>
 <p>After you open the app, the <strong>Overview</strong> page shows the <strong>main</strong> branch; open that branch to deploy.</p>
 <p><img src="../../../images/4-workshop/amplify-console-overview-main-branch.png" alt="Amplify — Overview, main branch"></p>
+<h3 id="build-specification-amplifyyml">Build specification: amplify.yml</h3>
+<p>Amplify Hosting does not guess your monorepo layout. The <strong>build spec</strong> at the <strong>repository root</strong> — file <strong>amplify.yml</strong> in <a href="https://github.com/benguinsan/spendwise">SpendWiseApp</a> — tells Amplify which folder is the Next.js app and how to install dependencies, build, and which directory to publish.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># SpendWiseApp/amplify.yml (repository root)</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">applications</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">appRoot</span>: <span style="color:#ae81ff">frontend</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">frontend</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">phases</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">preBuild</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">commands</span>:
+</span></span><span style="display:flex;"><span>            - <span style="color:#ae81ff">npm install --legacy-peer-deps</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">build</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">commands</span>:
+</span></span><span style="display:flex;"><span>            - <span style="color:#ae81ff">npm run build</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">artifacts</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">baseDirectory</span>: <span style="color:#ae81ff">.next</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">files</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#e6db74">&#39;**/*&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">cache</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">paths</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#ae81ff">node_modules/**/*</span>
+</span></span><span style="display:flex;"><span>          - <span style="color:#ae81ff">.next/cache/**/*</span>
+</span></span></code></pre></div><table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Block</th>
+          <th style="text-align: left">Role</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><strong>appRoot: frontend</strong></td>
+          <td style="text-align: left">The Next.js app lives under <strong>frontend/</strong>; Amplify runs commands from that directory.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>preBuild → npm install &ndash;legacy-peer-deps</strong></td>
+          <td style="text-align: left">Installs dependencies before compile; <strong>&ndash;legacy-peer-deps</strong> avoids strict peer-resolution failures common in mixed Next.js workspaces.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>build → npm run build</strong></td>
+          <td style="text-align: left">Produces the production Next.js output (including the <strong>.next</strong> tree Amplify serves for this hosting pattern).</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>artifacts.baseDirectory: .next</strong></td>
+          <td style="text-align: left">Declares the publish root for the generated site artifacts (aligned with how this app is built for Amplify).</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><strong>cache.paths</strong></td>
+          <td style="text-align: left">Speeds up repeat builds by reusing <strong>node_modules</strong> and <strong>.next/cache</strong> between builds.</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Build-time environment variables:</strong> Values such as <strong>NEXT_PUBLIC_API_URL</strong> are injected by Terraform into the Amplify app environment, but they are <strong>baked into the client bundle at build time</strong>. After you change API URL variables in Terraform or the Amplify console, trigger a <strong>new deployment</strong> (rebuild) so the browser loads a bundle that matches the backend URL. Build behavior itself is defined in <strong>amplify.yml</strong>; variable values come from Terraform / Amplify app settings.</p>
+<h3 id="why-cloudfront-for-the-api-mixed-content">Why CloudFront for the API (mixed content)</h3>
+<p>The frontend on Amplify is served to browsers over <strong>HTTPS</strong>. Browsers enforce <strong>mixed content</strong> rules: a page loaded over HTTPS must not load subresources or call APIs over plain <strong>HTTP</strong> in ways that are treated as <em>active</em> content (for example <strong>fetch</strong> / XHR to an <strong>http://</strong> API). If the SPA called the NestJS API over <strong>HTTP</strong> using the raw ALB hostname, the browser would block or warn, and the app would break or behave inconsistently across browsers.</p>
+<p><strong>Options in this stack:</strong></p>
+<ol>
+<li>
+<p><strong>HTTPS on the ALB with your own hostname</strong> — Use <strong>alb_acm_certificate_arn</strong> (ACM in the <strong>same region</strong> as the ALB), validate the certificate in DNS, point a hostname at the ALB, and set <strong>alb_public_api_base_url</strong>. That is the right long-term pattern when you control a domain; it is more moving parts for a short lab.</p>
+</li>
+<li>
+<p><strong>CloudFront in front of the ALB (enable_api_cloudfront = true)</strong> — Terraform creates an <strong>Amazon CloudFront</strong> distribution with the <strong>default CloudFront certificate</strong>, so the API is reachable at an <strong><a href="https://dxxxx.cloudfront.net">https://dxxxx.cloudfront.net</a></strong> URL without buying a domain or attaching ACM to the ALB. The browser sees <strong>HTTPS → HTTPS</strong>, so <strong>mixed content is resolved</strong>. Depending on how the modules wire the origin, the ALB can remain HTTP-only behind CloudFront while the <strong>user-facing</strong> API URL is always HTTPS.</p>
+</li>
+</ol>
+<p><strong>Why CloudFront is a good fit for workshops and dev:</strong> it delivers a <strong>stable HTTPS URL</strong> quickly, matches <strong>Amplify</strong> hosting the frontend over HTTPS only, and avoids ACM DNS validation delays when you only need a working lab. Trade-offs include an extra network hop and CloudFront–origin configuration to understand; for production with a owned domain, ACM + ALB or a custom CloudFront setup is often preferred — see <a href="../../../4-workshop/4.2-aws-infrastructure-security/4.2.2-client-facing/">4.2.2</a> and <a href="../../../4-workshop/4.2-aws-infrastructure-security/4.2.3-backend-platform/">4.2.3</a>.</p>
 <p>Related design (Amplify, API URL): <a href="../../../4-workshop/4.2-aws-infrastructure-security/4.2.2-client-facing/">4.2.2 Frontend hosting and user authentication</a>.</p>
 <hr>
 
@@ -1284,19 +1351,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../../js/clipboard.min.js?1777827991"></script>
-    <script src="../../../js/perfect-scrollbar.min.js?1777827991"></script>
-    <script src="../../../js/perfect-scrollbar.jquery.min.js?1777827991"></script>
-    <script src="../../../js/jquery.sticky.js?1777827991"></script>
-    <script src="../../../js/featherlight.min.js?1777827991"></script>
-    <script src="../../../js/highlight.pack.js?1777827991"></script>
+    <script src="../../../js/clipboard.min.js?1777860572"></script>
+    <script src="../../../js/perfect-scrollbar.min.js?1777860572"></script>
+    <script src="../../../js/perfect-scrollbar.jquery.min.js?1777860572"></script>
+    <script src="../../../js/jquery.sticky.js?1777860572"></script>
+    <script src="../../../js/featherlight.min.js?1777860572"></script>
+    <script src="../../../js/highlight.pack.js?1777860572"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../../js/modernizr.custom-3.6.0.js?1777827991"></script>
-    <script src="../../../js/learn.js?1777827991"></script>
-    <script src="../../../js/hugo-learn.js?1777827991"></script>
+    <script src="../../../js/modernizr.custom-3.6.0.js?1777860572"></script>
+    <script src="../../../js/learn.js?1777860572"></script>
+    <script src="../../../js/hugo-learn.js?1777860572"></script>
 
-    <link href="../../../mermaid/mermaid.css?1777827991" rel="stylesheet" />
-    <script src="../../../mermaid/mermaid.js?1777827991"></script>
+    <link href="../../../mermaid/mermaid.css?1777860572" rel="stylesheet" />
+    <script src="../../../mermaid/mermaid.js?1777860572"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
